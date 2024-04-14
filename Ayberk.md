@@ -9,4 +9,4 @@
 7. Profil oluşturma
 
 ## Kullanım Senaryoları
-[Kullanim.Senaryosu.Ayberk.Bilgic.pdf](https://github.com/lewisVailed/TatlimiGetir/files/14971283/Kullanim.Senaryosu.Ayberk.Bilgic.pdf)
+[Kullanim.Senaryosu.Ayberk.Bilgic.pdf](https://github.com/lewisVailed/TatlimiGetir/files/14971727/Kullanim.Senaryosu.Ayberk.Bilgic.pdf)
