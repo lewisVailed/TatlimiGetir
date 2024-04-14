@@ -1,9 +1,5 @@
 # Durum Senaryoları
  
-## Mustafa Narin
-[Kullanım Senaryosu Mustafa Narin.pdf](https://github.com/lewisVailed/TatlimiGetir/files/14970691/Kullanim.Senaryosu.Mustafa.Narin.pdf)
-
-
-## Ayberk Bilgiç
-
-## Betül Oran
+1. [Ayberk Bilgiç'in Gereksinimleri](https://github.com/lewisVailed/TatlimiGetir/blob/main/Ayberk.md)
+2. [Mustafa Narin'in Gereksinimleri](https://github.com/lewisVailed/TatlimiGetir/blob/main/Mustafa.md)
+3. [Betül Oran'ın Gereksinimleri](https://github.com/lewisVailed/TatlimiGetir/blob/main/Betül.md)
