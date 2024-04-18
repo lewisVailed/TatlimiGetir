@@ -16,9 +16,9 @@
 
 1. [Proje Planı](https://github.com/lewisVailed/TatlimiGetir/blob/main/projeplani.md)
 2. [Gereksinim Analizi](https://github.com/lewisVailed/TatlimiGetir/blob/main/gereksinimanalizi.md)
-3. [Durum Diyagramı](#baslik-3)
-4. [Durum Senaryoları](#baslik-3)
-5. [Veritabanı Diyagramı](#baslik-3)
+3. [Durum Diyagramı](https://github.com/lewisVailed/TatlimiGetir/blob/main/durumdiyagrami.md)
+4. [Durum Senaryoları](https://github.com/lewisVailed/TatlimiGetir/blob/main/durumsenaryolari.md)
+5. [Veritabanı Diyagramı](https://github.com/lewisVailed/TatlimiGetir/blob/main/veritabanidiyagrami.md)
 6. [Front-End](#baslik-3)
 7. [Back-End](#baslik-3)
 8. [Test](#baslik-3)
