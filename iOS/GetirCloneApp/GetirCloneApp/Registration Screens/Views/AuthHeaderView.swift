@@ -36,6 +36,8 @@ class AuthHeaderView: UIView {
         NSLayoutConstraint.activate([
             self.title.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 30),
             self.title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.title.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.title.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
         ])
         
