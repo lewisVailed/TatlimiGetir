@@ -10,6 +10,8 @@
 		D719E91D2BCD8FF000025218 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719E91C2BCD8FF000025218 /* AuthHeaderView.swift */; };
 		D719E91F2BDF95C000025218 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719E91E2BDF95C000025218 /* CustomTextField.swift */; };
 		D719E9212BDF95F400025218 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719E9202BDF95F400025218 /* CustomButton.swift */; };
+		D719E9232BDFC95F00025218 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719E9222BDFC95F00025218 /* Checkbox.swift */; };
+		D719E9252BDFD08100025218 /* CheckBoxTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D719E9242BDFD08100025218 /* CheckBoxTwo.swift */; };
 		D79F81102B8A1EB600570395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F810F2B8A1EB600570395 /* AppDelegate.swift */; };
 		D79F81122B8A1EB600570395 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F81112B8A1EB600570395 /* SceneDelegate.swift */; };
 		D79F81142B8A1EB600570395 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79F81132B8A1EB600570395 /* LoginController.swift */; };
@@ -21,6 +23,8 @@
 		D719E91C2BCD8FF000025218 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		D719E91E2BDF95C000025218 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D719E9202BDF95F400025218 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D719E9222BDFC95F00025218 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		D719E9242BDFD08100025218 /* CheckBoxTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxTwo.swift; sourceTree = "<group>"; };
 		D79F810C2B8A1EB600570395 /* GetirCloneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetirCloneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79F810F2B8A1EB600570395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D79F81112B8A1EB600570395 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 				D719E91C2BCD8FF000025218 /* AuthHeaderView.swift */,
 				D719E91E2BDF95C000025218 /* CustomTextField.swift */,
 				D719E9202BDF95F400025218 /* CustomButton.swift */,
+				D719E9222BDFC95F00025218 /* Checkbox.swift */,
+				D719E9242BDFD08100025218 /* CheckBoxTwo.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +209,8 @@
 				D719E91D2BCD8FF000025218 /* AuthHeaderView.swift in Sources */,
 				D719E9212BDF95F400025218 /* CustomButton.swift in Sources */,
 				D79F81102B8A1EB600570395 /* AppDelegate.swift in Sources */,
+				D719E9232BDFC95F00025218 /* Checkbox.swift in Sources */,
+				D719E9252BDFD08100025218 /* CheckBoxTwo.swift in Sources */,
 				D79F81122B8A1EB600570395 /* SceneDelegate.swift in Sources */,
 				D719E91F2BDF95C000025218 /* CustomTextField.swift in Sources */,
 			);

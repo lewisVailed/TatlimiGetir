@@ -32,8 +32,14 @@ class LoginController: UIViewController {
         usernameField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         self.view.backgroundColor = .systemBackground
         self.navigationItem.title = "Kayıt Ol"
+        
+
+        
         self.navigationController?.navigationBar.backgroundColor = .systemPurple
         self.navigationItem.largeTitleDisplayMode = .never
         
@@ -64,7 +70,7 @@ class LoginController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.insetsLayoutMarginsFromSafeArea = false
 
     }
     
