@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,30 +10,45 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  final String appbarTitle = "Üye ol";
+
+  final String textFieldUserName = "Ad Soyad";
+  final String textFieldEposta = "E posta";
+  final String textFieldPassword = "Şifre";
+  
+
+  final String agreement1 = "Kullanım Koşulları'nı";
+  final String agreement2 = " okudum kabul ediyorum.";
+
+  final String informativeText1 = "KVKK Aydınlatma Metni";
+  final String informativeText2 = " kapsamında verilerin bana özel teklifler ve kampanyalar için kullanılmasına, tarafıma ticari elektronik ileti gönderilmesine izin veriyorum.";
+
+  final String buttonName = "Üye ol";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Üye ol"),
+        title: Text(appbarTitle),
       ),
       body: Padding(
-        padding:  const EdgeInsets.symmetric(horizontal: 30),
+        padding:   const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Spacer(flex: 1,),
-            const Expanded(
+             Expanded(
               flex: 3,
-              child: textField(hintText: "Ad Soyad",)),
-            const Expanded(
+              child: textField(hintText: textFieldUserName,)),
+            Expanded(
               flex: 3,
-              child: textField(hintText: "E posta",inputType: TextInputType.emailAddress,)),
-            const Expanded(
+              child: textField(hintText: textFieldEposta,inputType: TextInputType.emailAddress,)),
+             Expanded(
               flex: 3,
-              child: textField(hintText: "Şifre",obscureText: true,)),
-            _richText(text1: "Kullanım Koşulları'nı",text2: " okudum kabul ediyorum.",),
+              child: textField(hintText: textFieldPassword,obscureText: true,)),
+            _richText(text1: agreement1,text2: agreement2,),
             
-            _richText(text1: "KVKK Aydınlatma Metni", text2: " kapsamında verilerin bana özel teklifler ve kampanyalar için kullanılmasına, tarafıma ticari elektronik ileti gönderilmesine izin veriyorum."),
+            _richText(text1: informativeText1, text2: informativeText2),
             const Spacer(flex: 8,),
             SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -45,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff7b2cbf)
                 ),
-                child:  Text("Üye ol",style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),),),
+                child:  Text(buttonName,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),),),
             ),
             const Spacer(flex: 1,)
           ],
@@ -66,7 +80,7 @@ class _richText extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: text1,
-        recognizer: Gesture
+        
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
           color: Colors.purple[900],
           fontWeight: FontWeight.bold
