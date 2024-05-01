@@ -7,31 +7,29 @@
 
 import UIKit
 
-class Checkbox: UIView {
+class Checkbox: UIButton{
 
-    public var checked: Bool = false
-    
-    public var image: UIImage? {
-        let image = UIImage(systemName: "checkmark.square.fill")
-        return checked ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "square")
+    var isChecked: Bool = false {
+        didSet {
+            updateCheckbox()
+        }
     }
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .white
-        
-    //    imageView.image = self.image
-        
-        return imageView
+    let checkboxButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "square"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     
-    
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setup()
+    init(isChecked: Bool) {
+        super.init(frame: .zero)
+        self.isChecked = isChecked
+        self.setupUI()
+        updateCheckbox()
         
     }
     
@@ -39,19 +37,24 @@ class Checkbox: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        let imageView = UIImageView()
-        self.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+    private func setupUI() {
+        self.addSubview(checkboxButton)
+        checkboxButton.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = .systemBackground
         
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor)
+            checkboxButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            checkboxButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
-        imageView.image = image
-        
+    }
+    
+    @objc func checkboxTapped() {
+        isChecked.toggle()
+    }
+    
+    func updateCheckbox() {
+        let imageName = isChecked ? "checkmark.square.fill" : "square"
+        checkboxButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
 }

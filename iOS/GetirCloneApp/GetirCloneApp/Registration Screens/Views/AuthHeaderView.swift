@@ -12,7 +12,7 @@ class AuthHeaderView: UIView {
     // MARK: - UI Componenta
     private let title: UILabel = {
         let label = UILabel()
-        label.textColor = .systemPurple
+        label.textColor = UIColor(red: 92/255, green: 60/255, blue: 187/255, alpha: 1)
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.text = ""
