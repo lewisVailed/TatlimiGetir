@@ -9,21 +9,25 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final String _appbarTitle = "Giriş Yap";
+  final String _textFieldEposta = "E mail";
+  final String _textFieldPassword = "Şifre";
+  final String _buttonName = "Giriş Yap";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Giriş Yap"),
+        title: Text(_appbarTitle),
       ),
-      body: const Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 30),
+      body: Padding(
+        padding:  const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             
-            textField(hintText: "E mail",inputType: TextInputType.emailAddress),
-            textField(hintText: "Şifre",obscureText: true,),
-            loginButton(buttonName: "Giriş Yap")
+            textField(hintText: _textFieldEposta,inputType: TextInputType.emailAddress),
+            textField(hintText: _textFieldPassword,obscureText: true,),
+            loginButton(buttonName: _buttonName)
           ],
         ),
       ),
