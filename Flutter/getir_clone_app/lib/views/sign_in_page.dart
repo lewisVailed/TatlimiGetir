@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SigninPage extends StatefulWidget {
+  const SigninPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SigninPage> createState() => _SigninPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SigninPageState extends State<SigninPage> {
 
   final String appbarTitle = "Üye ol";
 
@@ -52,20 +52,34 @@ class _LoginPageState extends State<LoginPage> {
             const Spacer(flex: 8,),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              child: ElevatedButton(
-                onPressed: () {
-              
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff7b2cbf)
-                ),
-                child:  Text(buttonName,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),),),
+              child: loginButton(buttonName: buttonName),
             ),
             const Spacer(flex: 1,)
           ],
         ),
       ),
     );
+  }
+}
+
+class loginButton extends StatelessWidget {
+  const loginButton({
+    super.key,
+    required this.buttonName,
+  });
+
+  final String buttonName;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+    
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xff7b2cbf)
+      ),
+      child:  Text(buttonName,style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),),);
   }
 }
 
@@ -117,6 +131,7 @@ class textField extends StatelessWidget {
       ),
       obscureText: obscureText,
       keyboardType: inputType,
+      textInputAction: TextInputAction.next,
     );
   }
 }

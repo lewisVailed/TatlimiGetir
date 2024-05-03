@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:getir_clone_app/views/login_page.dart';
+import 'package:getir_clone_app/views/log_in_page.dart';
+import 'package:getir_clone_app/views/sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
