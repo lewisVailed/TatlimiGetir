@@ -139,7 +139,7 @@ class RegisterController: UIViewController {
     // MARK: - Button Response
     
     @objc func backButtonTapped() {
-        print("button pressed")
+        navigationController?.popViewController(animated: true)
     }
     
 

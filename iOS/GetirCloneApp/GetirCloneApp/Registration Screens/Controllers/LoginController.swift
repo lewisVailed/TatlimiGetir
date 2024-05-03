@@ -36,8 +36,9 @@ class LoginController: UIViewController {
         let rmdButton = UIButton()
         let color = UIColor(red: 92/255, green: 60/255, blue: 187/255, alpha: 1)
         rmdButton.backgroundColor = .white
-        
+        rmdButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         rmdButton.setTitleColor(color ,for: .normal)
+        rmdButton.setTitle("Henüz üye olmadınız mı? Üye olun.", for: .normal)
         return rmdButton
     }()
     
@@ -47,6 +48,8 @@ class LoginController: UIViewController {
         self.setupUI()
         
         self.makeOpaqueNavBar()
+        
+        termsTextViewLogin.delegate = self
         
     }
     
@@ -58,12 +61,16 @@ class LoginController: UIViewController {
         self.view.addSubview(passwordFieldLogin)
         self.view.addSubview(loginButton)
         self.view.addSubview(termsTextViewLogin)
+        self.view.addSubview(reminderButton)
         
         headerViewLogin.translatesAutoresizingMaskIntoConstraints = false
         usernameFieldLogin.translatesAutoresizingMaskIntoConstraints = false
         passwordFieldLogin.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         termsTextViewLogin.translatesAutoresizingMaskIntoConstraints = false
+        reminderButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        reminderButton.addTarget(self, action: #selector(didTapReminderButton), for: .touchUpInside)
         
         self.view.backgroundColor = .systemBackground
         self.navigationItem.title = "Giriş Yap"
@@ -89,9 +96,48 @@ class LoginController: UIViewController {
             self.termsTextViewLogin.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 25),
             self.termsTextViewLogin.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
         
-        
+            self.loginButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor),
+            self.loginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.loginButton.heightAnchor.constraint(equalToConstant: 50),
+            self.loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
+            
+            self.reminderButton.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -20),
+            self.reminderButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.reminderButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 25),
+            self.reminderButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
         
         ])
     }
     
+    @objc func didTapReminderButton() {
+        let vc = RegisterController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }
+
+extension LoginController: UITextViewDelegate {
+     
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+         
+        if URL.scheme == "terms" {
+            self.showWebViewController(with: "https://getir.com/yardim/kvkk/")
+        }
+        return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        textView.delegate = nil
+        textView.selectedTextRange = nil
+        textView.delegate = self
+    }
+    
+    private func showWebViewController(with urlString: String) {
+        let vc = WebViewController(with: urlString)
+        let navigation = UINavigationController(rootViewController: vc)
+        self.present(navigation, animated: true, completion: nil)
+    }
+    
+}
+
