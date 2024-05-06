@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Text("Kategoriler",style: Theme.of(context).textTheme.titleLarge?.copyWith(color: const Color(0xff5a189a),fontWeight: FontWeight.bold),),
+                  child: Text("Merhaba Mustafa!",style: Theme.of(context).textTheme.titleLarge?.copyWith(color: const Color(0xff5a189a),fontWeight: FontWeight.bold),),
                 ),
                 GridView.builder(
                   shrinkWrap: true,
