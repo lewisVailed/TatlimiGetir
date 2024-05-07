@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:getir_clone_app/views/sign_in_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -22,12 +23,23 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding:  const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          
           children: [
-            
-            textField(hintText: _textFieldEposta,inputType: TextInputType.emailAddress),
-            textField(hintText: _textFieldPassword,obscureText: true,),
-            loginButton(buttonName: _buttonName)
+            const Spacer(flex: 5,),
+            Expanded(
+              flex: 5,
+              child: textField(hintText: _textFieldEposta,inputType: TextInputType.emailAddress)),
+            const Spacer(flex: 1,),
+            Expanded(
+              flex: 5,
+              child: textField(hintText: _textFieldPassword,obscureText: true,)),
+            const Spacer(flex: 20,),
+            Expanded(
+              flex: 3,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: loginButton(buttonName: _buttonName))),
+            const Spacer(flex: 5,),
           ],
         ),
       ),
