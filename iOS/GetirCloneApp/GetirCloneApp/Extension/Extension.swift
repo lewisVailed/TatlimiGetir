@@ -21,8 +21,26 @@ extension UIViewController {
             appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
             navigationController?.navigationBar.standardAppearance = appearance
             navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+            
+            
         }
     }
+    
+    func makeOpaqueNavBarForTabBar() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(red: 92/255, green: 60/255, blue: 187/255, alpha: 1)
+            appearance.shadowColor = .clear
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+            
+            
+        }
+    }
+
 
 
     func makeTransclucentNavBar() {
@@ -37,4 +55,6 @@ extension UIViewController {
             navigationController?.isNavigationBarHidden = false
         }
     }
+    
+    
 }

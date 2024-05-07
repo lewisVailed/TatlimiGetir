@@ -18,6 +18,8 @@ class AuthHeaderView: UIView {
         label.text = ""
         return label
     }()
+    
+    
 
     init(title: String) {
         super.init(frame: .zero)
