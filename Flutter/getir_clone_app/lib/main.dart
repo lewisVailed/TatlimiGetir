@@ -4,6 +4,7 @@ import 'package:getir_clone_app/views/category%20detail_page.dart';
 import 'package:getir_clone_app/views/home_page.dart';
 import 'package:getir_clone_app/views/log_in_page.dart';
 import 'package:getir_clone_app/views/sign_in_page.dart';
+import 'package:getir_clone_app/views/tab_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SigninPage(),
+      home: const TabView(),
     );
   }
 }
