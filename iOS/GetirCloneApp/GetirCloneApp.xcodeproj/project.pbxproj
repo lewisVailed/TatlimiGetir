@@ -24,9 +24,8 @@
 		D7E84A192BE630900022B38E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A182BE630900022B38E /* SearchController.swift */; };
 		D7E84A1B2BE630A10022B38E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A1A2BE630A10022B38E /* ProfileController.swift */; };
 		D7E84A1D2BE630D50022B38E /* ProductCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A1C2BE630D50022B38E /* ProductCartController.swift */; };
-		D7E84A272BEA7E070022B38E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A262BEA7E070022B38E /* HomeView.swift */; };
-		D7E84A2B2BEA7ECA0022B38E /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A2A2BEA7ECA0022B38E /* CustomPageControl.swift */; };
 		D7E84A2D2BEA839F0022B38E /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A2C2BEA839F0022B38E /* CollectionTableViewCell.swift */; };
+		D7E84A2F2BEA88D60022B38E /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A2E2BEA88D60022B38E /* TileCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +48,8 @@
 		D7E84A182BE630900022B38E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		D7E84A1A2BE630A10022B38E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		D7E84A1C2BE630D50022B38E /* ProductCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartController.swift; sourceTree = "<group>"; };
-		D7E84A262BEA7E070022B38E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		D7E84A2A2BEA7ECA0022B38E /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		D7E84A2C2BEA839F0022B38E /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
+		D7E84A2E2BEA88D60022B38E /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,9 +212,8 @@
 		D7E84A1F2BEA7B030022B38E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D7E84A262BEA7E070022B38E /* HomeView.swift */,
-				D7E84A2A2BEA7ECA0022B38E /* CustomPageControl.swift */,
 				D7E84A2C2BEA839F0022B38E /* CollectionTableViewCell.swift */,
+				D7E84A2E2BEA88D60022B38E /* TileCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,12 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E84A2F2BEA88D60022B38E /* TileCollectionViewCell.swift in Sources */,
 				D7E84A0C2BE3B4110022B38E /* Extension.swift in Sources */,
 				D79F81142B8A1EB600570395 /* RegisterController.swift in Sources */,
 				D7E84A152BE6302A0022B38E /* TabBarController.swift in Sources */,
 				D7E84A192BE630900022B38E /* SearchController.swift in Sources */,
 				D719E91D2BCD8FF000025218 /* AuthHeaderView.swift in Sources */,
-				D7E84A272BEA7E070022B38E /* HomeView.swift in Sources */,
 				D719E9212BDF95F400025218 /* CustomButton.swift in Sources */,
 				D7E84A2D2BEA839F0022B38E /* CollectionTableViewCell.swift in Sources */,
 				D79F81102B8A1EB600570395 /* AppDelegate.swift in Sources */,
@@ -316,7 +313,6 @@
 				D719E91F2BDF95C000025218 /* CustomTextField.swift in Sources */,
 				D719E9292BE2B67100025218 /* WebViewController.swift in Sources */,
 				D7E84A0E2BE575B10022B38E /* LoginController.swift in Sources */,
-				D7E84A2B2BEA7ECA0022B38E /* CustomPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
