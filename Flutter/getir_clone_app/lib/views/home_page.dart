@@ -1,6 +1,7 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +18,26 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tatlımı Getir"),
+        title: RichText(
+      text: TextSpan(
+        text: "tatlımı",
+        
+        style:  GoogleFonts.workSans().copyWith(
+          fontWeight: FontWeight.bold,
+          fontSize: 26,
+          color: Colors.white,
+             ),
+        children:  <TextSpan>[
+          TextSpan(
+            text: "getir",
+            style: GoogleFonts.workSans().copyWith(
+              color: Colors.amber,
+            )
+          ),
+        ]
+        
+      )
+    ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
