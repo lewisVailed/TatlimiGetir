@@ -42,7 +42,7 @@ class _TabViewState extends State<TabView> {
             HomePage(),
             LoginPage(),
             SigninPage(),
-            CategoryDetailPage()
+            HomePage()
           ],),
       
       ),
