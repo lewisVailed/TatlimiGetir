@@ -27,7 +27,7 @@ class ProfileView: UIView {
         let label = UILabel()
         label.textColor = .darkGray
         label.textAlignment = .left
-        label.font = .systemFont(ofSize: 22, weight: .regular)
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         label.text = ""
  
         return label
@@ -58,14 +58,14 @@ class ProfileView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.label.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 30),
-            self.label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 120),
+            self.label.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 25),
+            self.label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 100),
             self.label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            self.imageView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 10),
+            self.imageView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 20),
             self.imageView.trailingAnchor.constraint(equalTo: self.label.leadingAnchor, constant: -40),
-            self.imageView.heightAnchor.constraint(equalToConstant: 50),
-            self.imageView.widthAnchor.constraint(equalToConstant: 50),
+            self.imageView.heightAnchor.constraint(equalToConstant: 30),
+            self.imageView.widthAnchor.constraint(equalToConstant: 30),
 
         ])
         
