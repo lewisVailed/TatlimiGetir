@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:getir_clone_app/data/category.dart';
 import 'package:getir_clone_app/data/dessert_model.dart';
 import 'package:getir_clone_app/views/home_page.dart';
 
 class CategoryDetailPage extends StatefulWidget {
-  const CategoryDetailPage({super.key, required this.category_name});
-  final String category_name;
+  const CategoryDetailPage({super.key, required this.category});
+  final Category category;
   @override
   State<CategoryDetailPage> createState() => ccategoryDetailStatePage();
 }
@@ -25,12 +27,12 @@ class ccategoryDetailStatePage extends State<CategoryDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.category_name),
+        title: Text(widget.category.name),
         automaticallyImplyLeading: false,
         leading: IconButton(
           icon: const Icon(Icons.keyboard_backspace_rounded,color: Colors.white,),
          onPressed: () { 
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  const HomePage()));
+          Navigator.pop(context);
           },
           
         ),
@@ -53,21 +55,38 @@ class ccategoryDetailStatePage extends State<CategoryDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                    
-                   Card(
-                    color: Colors.white,
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      side: const BorderSide(
-                        color: Colors.black12
-                      )
-                    ),
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.width/4,
-                      width: MediaQuery.of(context).size.width/4,
-                      child: Image.asset("images/${_desserts[index].imageName}.png",fit: BoxFit.cover,),)),
+                   Expanded(
+                     child: Stack(
+                      alignment: Alignment.topRight,
+                      children: [
+                       
+                        
+                        Card(
+                        color: Colors.white,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: const BorderSide(
+                            color: Colors.black12
+                          )
+                        ),
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.width/4,
+                          width: MediaQuery.of(context).size.width/4,
+                          child: Image.asset("images/${_desserts[index].imageName}.png",fit: BoxFit.cover,),)),
+                           Positioned(
+                          left: MediaQuery.of(context).size.width/6,
+                          bottom: MediaQuery.of(context).size.width/4.5,
+                          child: IconButton(
+                          onPressed: (){}, 
+                          icon: const Icon(Icons.add_box,color: Colors.purple,size: 30,)),),
+                      ],
+                       
+                     ),
+                   ),
                     Text("₺${_desserts[index].price}",style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.purple,fontWeight: FontWeight.bold),),
                     Text(_desserts[index].name,style: Theme.of(context).textTheme.labelLarge,)
+                    
                 ],
               ),
             )
