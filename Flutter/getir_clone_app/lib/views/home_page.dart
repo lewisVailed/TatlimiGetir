@@ -1,6 +1,8 @@
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:getir_clone_app/data/category.dart';
 import 'package:getir_clone_app/views/category%20detail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,8 +15,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  var kategoriler = ["Dondurma","Şerbetli","Pasta","Çikolata","Kurabiye","Vanilya","Çilek","Muz","Kivi","Portakal","Ananas","Fıstık"];
+  late List<Category> _category;
 
+  @override
+  void initState() {
+    super.initState();
+    _category = CategoryItems().category;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,33 +76,37 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding:  const EdgeInsets.symmetric(horizontal: 10),
+              padding:    const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    padding:  const EdgeInsets.symmetric(vertical: 20),
                     child: Text("Merhaba Mustafa!",style: Theme.of(context).textTheme.titleLarge?.copyWith(color: const Color(0xff5a189a),fontWeight: FontWeight.bold),),
                   ),
                   GridView.builder(
                     
                     shrinkWrap: true,
                     gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
+                      crossAxisCount: 3,
                       childAspectRatio: 1/1),
-                    itemCount: kategoriler.length,
+                    itemCount: _category.length,
                     itemBuilder: (context,index){
                       return GestureDetector(
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryDetailPage(category_name: kategoriler[index])));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryDetailPage(category: _category[index])));
                         },
                         child: Card(
-                          color: const Color(0xff7b2cbf),
+                          color: Colors.grey[100],
                           elevation: 3,
-                          child: Row(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(kategoriler[index],style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white))
+                              SizedBox(
+                                height: MediaQuery.of(context).size.width/5,
+                                width: MediaQuery.of(context).size.width/5,
+                                child: Image.asset("images/category/${_category[index].imageName}.png",fit: BoxFit.contain,)),
+                              Text(_category[index].name,style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.black,fontWeight: FontWeight.bold))
                             ],
                           ),
                         ),
@@ -109,5 +120,22 @@ class _HomePageState extends State<HomePage> {
           ),
       ) 
     );
+  }
+}
+
+class CategoryItems{
+  late final List<Category> category;
+
+  CategoryItems(){
+    category = [
+      Category(name: "Atıştımalık", imageName: "snack"),
+      Category(name: "Dondurma", imageName: "icecream"),
+      Category(name: "Çikolata", imageName: "chocolate"),
+      Category(name: "Fırın", imageName: "bakery"),
+      Category(name: "Pasta", imageName: "cake"),
+      Category(name: "Sütlü", imageName: "milky"),
+      Category(name: "Şekerleme", imageName: "candy"),
+      Category(name: "Şerbetli", imageName: "syrupy")
+    ];
   }
 }
