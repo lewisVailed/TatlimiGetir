@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "chocolate-bar-snickers-twix-mars-kinder-surprise-snickers-2.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

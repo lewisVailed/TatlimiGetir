@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "219-2190046_lollipop-clipart-sweet-food-candy-sweet-food-clipart.png.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
