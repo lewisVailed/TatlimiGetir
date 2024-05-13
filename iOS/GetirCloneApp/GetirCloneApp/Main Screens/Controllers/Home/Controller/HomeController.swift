@@ -15,6 +15,8 @@ class HomeController: UIViewController {
         return table
     }()
     
+    let color = UIColor.secondarySystemBackground
+    
     private var collectionView: UICollectionView?
     
     private let titles: [String] = ["Bakery", "Cake", "Candy", "Chocolate", "Icecream", "Milky", "Snack", "Syrupy"]
@@ -103,7 +105,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { fatalError() }
         cell.configure(label: titles[indexPath.row], image: images[indexPath.row])
-    
+        
         return cell
     }
     

@@ -16,7 +16,6 @@ class TabBarController: UITabBarController {
         self.tabBar.tintColor = getirColor
         self.tabBar.unselectedItemTintColor = .systemGray
         
-        
     }
     
     let getirColor = UIColor(red: 92/255, green: 60/255, blue: 187/255, alpha: 1)
