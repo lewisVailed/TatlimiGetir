@@ -23,7 +23,7 @@ class SearchController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = .secondarySystemBackground
         self.navigationItem.title = "Search"
 
         

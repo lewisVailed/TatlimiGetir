@@ -19,6 +19,8 @@
 		D79F811C2B8A1EB700570395 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79F811A2B8A1EB700570395 /* LaunchScreen.storyboard */; };
 		D7DA87362BF0F01C0097536A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA87352BF0F01C0097536A /* CustomCollectionViewCell.swift */; };
 		D7DA873B2BF108AA0097536A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA873A2BF108AA0097536A /* ProfileView.swift */; };
+		D7DA87402BF245F90097536A /* CustomProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA873F2BF245F90097536A /* CustomProductCell.swift */; };
+		D7DA87422BF2A8630097536A /* PayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA87412BF2A8630097536A /* PayButton.swift */; };
 		D7E84A0C2BE3B4110022B38E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A0B2BE3B4110022B38E /* Extension.swift */; };
 		D7E84A0E2BE575B10022B38E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A0D2BE575B10022B38E /* LoginController.swift */; };
 		D7E84A152BE6302A0022B38E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E84A142BE6302A0022B38E /* TabBarController.swift */; };
@@ -45,6 +47,8 @@
 		D79F811D2B8A1EB700570395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7DA87352BF0F01C0097536A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		D7DA873A2BF108AA0097536A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D7DA873F2BF245F90097536A /* CustomProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProductCell.swift; sourceTree = "<group>"; };
+		D7DA87412BF2A8630097536A /* PayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayButton.swift; sourceTree = "<group>"; };
 		D7E84A0B2BE3B4110022B38E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D7E84A0D2BE575B10022B38E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D7E84A142BE6302A0022B38E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,32 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		D7DA873C2BF240160097536A /* Product Cart */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA873D2BF240300097536A /* Controller */,
+				D7DA873E2BF240360097536A /* Views */,
+			);
+			path = "Product Cart";
+			sourceTree = "<group>";
+		};
+		D7DA873D2BF240300097536A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D7E84A1C2BE630D50022B38E /* ProductCartController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D7DA873E2BF240360097536A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7DA873F2BF245F90097536A /* CustomProductCell.swift */,
+				D7DA87412BF2A8630097536A /* PayButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D7E84A0A2BE3B3EB0022B38E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,11 +252,11 @@
 		D7E84A0F2BE62B7C0022B38E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D7DA873C2BF240160097536A /* Product Cart */,
 				D7DA87372BF108430097536A /* Profile */,
 				D7DA872E2BED1E010097536A /* Search */,
 				D7E84A1E2BEA7AEE0022B38E /* Home */,
 				D7E84A142BE6302A0022B38E /* TabBarController.swift */,
-				D7E84A1C2BE630D50022B38E /* ProductCartController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -344,11 +374,13 @@
 			files = (
 				D7E84A2F2BEA88D60022B38E /* TileCollectionViewCell.swift in Sources */,
 				D7E84A0C2BE3B4110022B38E /* Extension.swift in Sources */,
+				D7DA87402BF245F90097536A /* CustomProductCell.swift in Sources */,
 				D79F81142B8A1EB600570395 /* RegisterController.swift in Sources */,
 				D7E84A152BE6302A0022B38E /* TabBarController.swift in Sources */,
 				D7E84A192BE630900022B38E /* SearchController.swift in Sources */,
 				D7DA87362BF0F01C0097536A /* CustomCollectionViewCell.swift in Sources */,
 				D719E91D2BCD8FF000025218 /* AuthHeaderView.swift in Sources */,
+				D7DA87422BF2A8630097536A /* PayButton.swift in Sources */,
 				D719E9212BDF95F400025218 /* CustomButton.swift in Sources */,
 				D7E84A2D2BEA839F0022B38E /* CollectionTableViewCell.swift in Sources */,
 				D79F81102B8A1EB600570395 /* AppDelegate.swift in Sources */,

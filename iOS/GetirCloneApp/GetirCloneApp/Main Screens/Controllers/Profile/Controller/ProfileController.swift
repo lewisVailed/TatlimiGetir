@@ -14,20 +14,28 @@ class ProfileController: UIViewController {
     private let profileName = ProfileView(label: "Ayberk Bilgiç", image: "person.fill")
     private let emailName = ProfileView(label: "lewidvailed@gmail.com", image: "mail.stack.fill")
     private let phoneName = ProfileView(label: "+90 543 145 92 21", image: "phone.fill")
+    private let logOutName = ProfileView(label: "Log Out", image: "rectangle.portrait.and.arrow.right.fill")
     
     static let getirColor = UIColor(red: 92/255, green: 60/255, blue: 187/255, alpha: 1)
     
     private let nameButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icon_arrow")?.withTintColor(getirColor, renderingMode: .alwaysOriginal), for: .normal)
-        
+        button.addTarget(self, action: #selector(didTapNameButton), for: .touchUpInside)
         return button
     }()
     
     private let emailButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icon_arrow")?.withTintColor(getirColor, renderingMode: .alwaysOriginal), for: .normal)
-        
+        button.addTarget(self, action: #selector(didTapEmailButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private let logOutButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "icon_arrow")?.withTintColor(getirColor, renderingMode: .alwaysOriginal), for: .normal)
+        button.addTarget(self, action: #selector(didTapLogoutButton), for: .touchUpInside)
         return button
     }()
     
@@ -54,26 +62,34 @@ class ProfileController: UIViewController {
         let linethree = UIView(frame: CGRect(x: 20, y: 175, width: 340, height: 1))
         linethree.backgroundColor = .systemGray5
         
-        let targetView = UIView(frame: CGRect(x: 0, y: 100, width: 400, height: 250))
+        let targetView = UIView(frame: CGRect(x: 0, y: 100, width: 400, height: 240))
         targetView.backgroundColor = .systemBackground
+        
+        let sectargetView = UIView(frame: CGRect(x: 0, y: 370, width: 400, height: 80))
+        sectargetView.backgroundColor = .systemBackground
         
         self.view.insertSubview(line, at: 0)
         self.view.insertSubview(linetwo, at: 3)
         self.view.insertSubview(linethree, at: 2)
         self.view.insertSubview(targetView, at: 1)
+        self.view.insertSubview(sectargetView, at: 2)
         self.view.insertSubview(profileName, at: 4)
         self.view.insertSubview(emailName, at: 5)
         self.view.insertSubview(phoneName, at: 6)
         self.view.insertSubview(nameButton, at: 7)
         self.view.insertSubview(emailButton, at: 8)
+        self.view.insertSubview(logOutName, at: 9)
+        self.view.insertSubview(logOutButton, at: 10)
         
         
         profileName.translatesAutoresizingMaskIntoConstraints = false
         emailName.translatesAutoresizingMaskIntoConstraints = false
         phoneName.translatesAutoresizingMaskIntoConstraints = false
+        logOutName.translatesAutoresizingMaskIntoConstraints = false
         
         nameButton.translatesAutoresizingMaskIntoConstraints = false
         emailButton.translatesAutoresizingMaskIntoConstraints = false
+        logOutButton.translatesAutoresizingMaskIntoConstraints = false
         
         
         NSLayoutConstraint.activate([
@@ -100,12 +116,45 @@ class ProfileController: UIViewController {
             self.phoneName.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.phoneName.topAnchor.constraint(equalTo: self.emailName.bottomAnchor),
             self.phoneName.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.emailName.heightAnchor.constraint(equalToConstant: 80),
+            self.phoneName.heightAnchor.constraint(equalToConstant: 80),
+            
+            self.logOutName.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.logOutName.topAnchor.constraint(equalTo: self.phoneName.bottomAnchor, constant: 30),
+            self.logOutName.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.logOutName.heightAnchor.constraint(equalToConstant: 80),
+            
+            self.logOutButton.topAnchor.constraint(equalTo: self.phoneName.bottomAnchor, constant: 60),
+            self.logOutButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            self.logOutButton.widthAnchor.constraint(equalToConstant: 20),
+            self.logOutButton.heightAnchor.constraint(equalToConstant: 20),
         
         ])
         
     }
 
+    // MARK: - Selector
+    @objc func didTapNameButton() {
+        let vc = RegisterController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
+    @objc func didTapEmailButton() {
+        let vc = LoginController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @objc func didTapLogoutButton() {
+        
+        if let tabBarController = self.tabBarController {
+            // İstediğiniz view controller'ı instantiate edin
+            let loginController = LoginController() // Geçmek istediğiniz ViewController'ın adını yazın
+            // Mevcut navigation controller'ı alın
+            loginController.hidesBottomBarWhenPushed = true
+            if let navController = tabBarController.selectedViewController as? UINavigationController {
+                // Geçiş yapın
+                navController.pushViewController(loginController, animated: true)
+            }
+        }
+        
+    }
 
 }
