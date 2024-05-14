@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height/3.2,
+              height: MediaQuery.of(context).size.height/3.5,
               child: AnotherCarousel(
                 animationCurve: Curves.ease,
                 animationDuration: const Duration(milliseconds: 800) ,
