@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:getir_clone_app/views/category%20detail_page.dart';
 import 'package:getir_clone_app/views/home_page.dart';
 import 'package:getir_clone_app/views/log_in_page.dart';
+import 'package:getir_clone_app/views/search_page.dart';
 import 'package:getir_clone_app/views/sign_in_page.dart';
 
 class TabView extends StatefulWidget {
@@ -21,10 +22,12 @@ class _TabViewState extends State<TabView> {
       length: 4,
       child: Scaffold(
         bottomNavigationBar: BottomAppBar(
+          color: Colors.white,
           padding: EdgeInsets.all(0),
           notchMargin: 0,
           height: 55,
           child: TabBar(
+            
             indicatorWeight: 4,
             unselectedLabelColor: Colors.grey,
             
@@ -40,7 +43,7 @@ class _TabViewState extends State<TabView> {
           physics: NeverScrollableScrollPhysics(),
           children: [
             HomePage(),
-            LoginPage(),
+            SearchPage(),
             SigninPage(),
             HomePage()
           ],),
