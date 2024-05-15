@@ -44,11 +44,8 @@ class CustomProductCell: UITableViewCell {
     
     private let productMinus: UIButton = {
         let button = UIButton()
-        
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .bold, scale: .medium)
-               
         let largeBoldDoc = UIImage(systemName: "minus.square.fill", withConfiguration: largeConfig)
-
         button.setImage(largeBoldDoc?.withTintColor(getirColor, renderingMode: .alwaysOriginal), for: .normal)
         
         return button
@@ -68,11 +65,8 @@ class CustomProductCell: UITableViewCell {
     
     private let productPlus: UIButton = {
         let button = UIButton()
-        
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .bold, scale: .medium)
-               
         let largeBoldDoc = UIImage(systemName: "plus.square.fill", withConfiguration: largeConfig)
-
         button.setImage(largeBoldDoc?.withTintColor(getirColor, renderingMode: .alwaysOriginal), for: .normal)
         
         return button
@@ -88,10 +82,11 @@ class CustomProductCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(image: UIImage, name: String, price: String) {
+    public func configure(image: UIImage, name: String, price: String, total: String) {
         self.productImage.image = image
         self.productName.text = name
-        self.productPrice.text = price
+        self.productPrice.text = "₺\(price)"
+        self.productTotal.text = total
     }
     
     private func setupUI() {
