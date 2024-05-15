@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:getir_clone_app/views/sign_in_page.dart';
@@ -17,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+
       appBar: AppBar(
         title: Text(_appbarTitle),
       ),
@@ -26,19 +29,22 @@ class _LoginPageState extends State<LoginPage> {
           
           children: [
             const Spacer(flex: 5,),
-            Expanded(
-              flex: 5,
-              child: textField(hintText: _textFieldEposta,inputType: TextInputType.emailAddress)),
+            textField(hintText: _textFieldEposta,inputType: TextInputType.emailAddress),
             const Spacer(flex: 1,),
-            Expanded(
-              flex: 5,
-              child: textField(hintText: _textFieldPassword,obscureText: true,)),
+            textField(hintText: _textFieldPassword,obscureText: true,),
+            Align(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                onPressed: (){}, 
+                child:   Text("Şifremi unuttum",style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Colors.purple,decoration: TextDecoration.underline, decorationColor: Colors.purple
+                ),)),
+            ),
             const Spacer(flex: 20,),
-            Expanded(
-              flex: 3,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: loginButton(buttonName: _buttonName))),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: loginButton(buttonName: _buttonName)),
+            
             const Spacer(flex: 5,),
           ],
         ),

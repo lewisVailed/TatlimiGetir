@@ -37,16 +37,13 @@ class _SigninPageState extends State<SigninPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Spacer(flex: 2,),
+             textField(hintText: textFieldUserName,),
+             const Spacer(flex: 1,),
+            textField(hintText: textFieldEposta,inputType: TextInputType.emailAddress,),
             const Spacer(flex: 1,),
-             Expanded(
-              flex: 3,
-              child: textField(hintText: textFieldUserName,)),
-            Expanded(
-              flex: 3,
-              child: textField(hintText: textFieldEposta,inputType: TextInputType.emailAddress,)),
-             Expanded(
-              flex: 3,
-              child: textField(hintText: textFieldPassword,obscureText: true,)),
+            textField(hintText: textFieldPassword,obscureText: true,),
+            const Spacer(flex: 1,),
             _richText(text1: agreement1,text2: agreement2,),
             
             _richText(text1: informativeText1, text2: informativeText2),
@@ -55,7 +52,7 @@ class _SigninPageState extends State<SigninPage> {
               width: MediaQuery.of(context).size.width,
               child: loginButton(buttonName: buttonName),
             ),
-            const Spacer(flex: 1,)
+            const Spacer(flex: 2,)
           ],
         ),
       ),

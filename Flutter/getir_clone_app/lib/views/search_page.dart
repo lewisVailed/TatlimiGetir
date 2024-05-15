@@ -32,7 +32,8 @@ class SearchPageState extends State<SearchPage> {
                   cursorColor: Colors.amber,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
-                    
+                    hintText: "Ürün ara",
+                    hintStyle: TextStyle(color: Colors.grey),
                     prefixIcon: Icon(Icons.search_rounded,color: Color(0xff7b2cbf),size: 30,),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(0)),
@@ -45,7 +46,7 @@ class SearchPageState extends State<SearchPage> {
               ),
             ),
           ),
-
+          
         ],
       ),
     );

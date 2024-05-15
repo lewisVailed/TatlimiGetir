@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:getir_clone_app/views/basket_page.dart';
 import 'package:getir_clone_app/views/category%20detail_page.dart';
 import 'package:getir_clone_app/views/home_page.dart';
 import 'package:getir_clone_app/views/log_in_page.dart';
@@ -44,8 +45,8 @@ class _TabViewState extends State<TabView> {
           children: [
             HomePage(),
             SearchPage(),
-            SigninPage(),
-            HomePage()
+            BasketPage(),
+            LoginPage()
           ],),
       
       ),
