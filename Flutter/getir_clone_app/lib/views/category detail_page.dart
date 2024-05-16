@@ -26,6 +26,7 @@ class ccategoryDetailStatePage extends State<CategoryDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white.withOpacity(0.95),
       appBar: AppBar(
         title: Text(widget.category.name),
         automaticallyImplyLeading: false,
