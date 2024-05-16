@@ -18,8 +18,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-
       appBar: AppBar(
         title: Text(_appbarTitle),
       ),
@@ -29,6 +27,8 @@ class _LoginPageState extends State<LoginPage> {
           
           children: [
             const Spacer(flex: 5,),
+            Text("Tatlımı Getir'e Hoşgeldiniz",style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: const Color(0xff7b2cbf)),),
+            const Spacer(flex: 2,),
             textField(hintText: _textFieldEposta,inputType: TextInputType.emailAddress),
             const Spacer(flex: 1,),
             textField(hintText: _textFieldPassword,obscureText: true,),
@@ -37,14 +37,18 @@ class _LoginPageState extends State<LoginPage> {
               child: TextButton(
                 onPressed: (){}, 
                 child:   Text("Şifremi unuttum",style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.purple,decoration: TextDecoration.underline, decorationColor: Colors.purple
+                  color: const Color(0xff7b2cbf),decoration: TextDecoration.underline, decorationColor: const Color(0xff7b2cbf)
                 ),)),
             ),
             const Spacer(flex: 20,),
             SizedBox(
               width: MediaQuery.of(context).size.width,
               child: loginButton(buttonName: _buttonName)),
-            
+            TextButton(
+              onPressed: (){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SigninPage()));
+              }, 
+              child: const Text("Henüz hesabın yok mu? Hemen Kayıt ol!")),
             const Spacer(flex: 5,),
           ],
         ),

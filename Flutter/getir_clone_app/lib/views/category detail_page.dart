@@ -41,7 +41,7 @@ class ccategoryDetailStatePage extends State<CategoryDetailPage> {
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 2/2.8,
+          childAspectRatio: 2/3.1, // Eski Ayar 2.8 pastaneyi silince
         ),
         itemCount: _desserts.length,
          itemBuilder: (context,index){
@@ -86,7 +86,8 @@ class ccategoryDetailStatePage extends State<CategoryDetailPage> {
                      ),
                    ),
                     Text("₺${_desserts[index].price}",style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.purple,fontWeight: FontWeight.bold),),
-                    Text(_desserts[index].name,style: Theme.of(context).textTheme.labelLarge,)
+                    Text(_desserts[index].name,style: Theme.of(context).textTheme.labelLarge,),
+                    Text(_desserts[index].sweetshop,style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.grey))
                     
                 ],
               ),
@@ -103,21 +104,36 @@ class DessertItems {
 
   DessertItems(){
     desserts = [
-      Dessert(name: "Cheesecake", price: 110.00, imageName: "tatli1"),
-      Dessert(name: "Damat Pastası", price: 149.90, imageName: "tatli2"),
-      Dessert(name: "Brownie", price: 99.90, imageName: "tatli3"),
-      Dessert(name: "Çikoaltalı Kek", price: 120.00, imageName: "tatli4"),
-      Dessert(name: "Krem Karamel", price: 110.00, imageName: "tatli5"),
-      Dessert(name: "Cheesecake", price: 110.00, imageName: "tatli1"),
-      Dessert(name: "Damat Pastası", price: 149.90, imageName: "tatli2"),
-      Dessert(name: "Brownie", price: 99.90, imageName: "tatli3"),
-      Dessert(name: "Çikoaltalı Kek", price: 120.00, imageName: "tatli4"),
-      Dessert(name: "Krem Karamel", price: 110.00, imageName: "tatli5"),
-      Dessert(name: "Cheesecake", price: 110.00, imageName: "tatli1"),
-      Dessert(name: "Damat Pastası", price: 149.90, imageName: "tatli2"),
-      Dessert(name: "Brownie", price: 99.90, imageName: "tatli3"),
-      Dessert(name: "Çikoaltalı Kek", price: 120.00, imageName: "tatli4"),
-      Dessert(name: "Krem Karamel", price: 110.00, imageName: "tatli5")
+      Dessert(name: "Cheesecake", price: 110.00, imageName: "tatli1",
+      sweetshop: "Nur Pastanesi"),
+      Dessert(name: "Damat Pastası", price: 149.90, imageName: "tatli2",
+      sweetshop: "Burç Fırın"),
+      Dessert(name: "Brownie", price: 99.90, imageName: "tatli3",
+      sweetshop: "Kahve Dünyası"),
+      Dessert(name: "Çikoaltalı Kek", price: 120.00, imageName: "tatli4",
+      sweetshop: "Gül Pastanesi"),
+      Dessert(name: "Krem Karamel", price: 110.00, imageName: "tatli5",
+      sweetshop: "Erva Pastane" ),
+      Dessert(name: "Cheesecake", price: 110.00, imageName: "tatli1",
+      sweetshop: "Nur Pastanesi"),
+      Dessert(name: "Damat Pastası", price: 149.90, imageName: "tatli2",
+      sweetshop: "Burç Fırın"),
+      Dessert(name: "Brownie", price: 99.90, imageName: "tatli3",
+      sweetshop: "Kahve Dünyası"),
+      Dessert(name: "Çikoaltalı Kek", price: 120.00, imageName: "tatli4",
+      sweetshop: "Gül Pastanesi"),
+      Dessert(name: "Krem Karamel", price: 110.00, imageName: "tatli5",
+      sweetshop: "Erva Pastane" ),
+      Dessert(name: "Cheesecake", price: 110.00, imageName: "tatli1",
+      sweetshop: "Nur Pastanesi"),
+      Dessert(name: "Damat Pastası", price: 149.90, imageName: "tatli2",
+      sweetshop: "Burç Fırın"),
+      Dessert(name: "Brownie", price: 99.90, imageName: "tatli3",
+      sweetshop: "Kahve Dünyası"),
+      Dessert(name: "Çikoaltalı Kek", price: 120.00, imageName: "tatli4",
+      sweetshop: "Gül Pastanesi"),
+      Dessert(name: "Krem Karamel", price: 110.00, imageName: "tatli5",
+      sweetshop: "Erva Pastane" ),
     ];
   }
 }
