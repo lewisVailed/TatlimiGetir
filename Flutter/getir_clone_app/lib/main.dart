@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:getir_clone_app/views/category%20detail_page.dart';
-import 'package:getir_clone_app/views/home_page.dart';
 import 'package:getir_clone_app/views/log_in_page.dart';
-import 'package:getir_clone_app/views/sign_in_page.dart';
-import 'package:getir_clone_app/views/tab_view.dart';
+
 
 void main() {
   runApp(const MyApp());

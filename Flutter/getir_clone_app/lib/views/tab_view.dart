@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:getir_clone_app/views/basket_page.dart';
-import 'package:getir_clone_app/views/category%20detail_page.dart';
 import 'package:getir_clone_app/views/home_page.dart';
-import 'package:getir_clone_app/views/log_in_page.dart';
 import 'package:getir_clone_app/views/profile_page.dart';
 import 'package:getir_clone_app/views/search_page.dart';
-import 'package:getir_clone_app/views/sign_in_page.dart';
+
 
 class TabView extends StatefulWidget {
   const TabView({super.key});

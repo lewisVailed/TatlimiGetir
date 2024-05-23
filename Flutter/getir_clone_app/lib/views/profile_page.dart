@@ -54,14 +54,47 @@ class _ProfilePageState extends State<ProfilePage> {
           } ,),
           const Divider(),
           _ListTile(icon: Icons.output_rounded, titleText: "Çıkış Yap",
-          onTap: (){
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);
+          onTap: () async {
+            final result = await showDialog(
+              context: context, 
+              builder: (context){
+                return const _AlertDialog();
+              });
+            if(result is bool){
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);
+            }
           },)
         ],),
     );
   }
 }
 
+class _AlertDialog extends StatelessWidget {
+  const _AlertDialog({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+    title: const Text("Hesabından çıkmak üzeresin!"),
+    actions: [
+    ElevatedButton(
+      style: ElevatedButton.styleFrom(backgroundColor: const Color(0xff7b2cbf)),
+      onPressed: (){
+        Navigator.pop(context);
+      }, 
+      child: const Text("Hayır",style: TextStyle(color: Colors.white),)),
+    TextButton(
+      onPressed: (){
+        Navigator.of(context).pop<bool>(true);
+      }, 
+      child: const Text("Evet",style: TextStyle(color: Color(0xff7b2cbf)),))
+    ],
+    );
+  }
+}
+//
 class _ListTile extends StatelessWidget {
   const _ListTile({
     super.key, required this.icon, required this.titleText, this.onTap,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:getir_clone_app/data/category.dart';
 import 'package:getir_clone_app/data/dessert_model.dart';
-import 'package:getir_clone_app/views/home_page.dart';
+
 
 class CategoryDetailPage extends StatefulWidget {
   const CategoryDetailPage({super.key, required this.category});
@@ -55,13 +55,10 @@ class ccategoryDetailStatePage extends State<CategoryDetailPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   
                    Expanded(
                      child: Stack(
                       alignment: Alignment.topRight,
                       children: [
-                       
-                        
                         Card(
                         color: Colors.white,
                         elevation: 0,
