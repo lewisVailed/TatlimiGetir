@@ -7,7 +7,12 @@
 
 import UIKit
 
+
 class CustomProductCell: UITableViewCell {
+    
+    let model = ProductModel.shared
+    
+    static var changeButton : Bool = false
 
     static let identifier = "CustomProductCell"
 
@@ -51,6 +56,7 @@ class CustomProductCell: UITableViewCell {
         return button
     }()
     
+    
     private let productTotal: UILabel = {
         let label = UILabel(frame: CGRect(x: 50, y: 50, width: 200, height: 50))
         label.textAlignment = .left
@@ -82,12 +88,29 @@ class CustomProductCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var buttonActionPlus: (() -> Void)?
+    var buttonActionMinus: (() -> Void)?
+    
     public func configure(image: UIImage, name: String, price: String, total: String) {
         self.productImage.image = image
         self.productName.text = name
         self.productPrice.text = "₺\(price)"
         self.productTotal.text = total
+        
+        self.productPlus.addTarget(self, action: #selector(increaseNumber), for: .touchUpInside)
+        self.productMinus.addTarget(self, action: #selector(decreaseNumber), for: .touchUpInside)
+        
     }
+    
+    
+    @objc func increaseNumber() {
+        buttonActionPlus?()
+    }
+    
+    @objc func decreaseNumber() {
+        buttonActionMinus?()
+    }
+      
     
     private func setupUI() {
         self.contentView.addSubview(productImage)
@@ -131,4 +154,10 @@ class CustomProductCell: UITableViewCell {
             
         ])
     }
+    
+    
+    
+    
+    
 }
+

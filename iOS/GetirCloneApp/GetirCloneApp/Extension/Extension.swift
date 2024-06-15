@@ -58,3 +58,19 @@ extension UIViewController {
     
     
 }
+
+
+extension String {
+    var toInt: Int? {
+        return Int(self)
+    }
+}
+
+extension Int {
+    var toString: String? {
+        return String(self)
+    }
+}
+
+
+

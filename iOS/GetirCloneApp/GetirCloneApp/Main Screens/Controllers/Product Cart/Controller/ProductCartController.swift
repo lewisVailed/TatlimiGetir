@@ -6,30 +6,36 @@
 //
 
 import UIKit
+import Foundation
 
 class ProductCartController: UIViewController {
+    
+    var model = ProductModel.shared
+    
+    let customView = CustomProductCell()
     
     // MARK: - Variables
     private let payButton = PayButton()
     
-    private let images: [UIImage] = [
+    private var images: [UIImage] = [
         UIImage(named: "dessert_bakery")!,
         UIImage(named: "dessert_cake")!,
         UIImage(named: "dessert_candy")!,
         UIImage(named: "dessert_milky")!,
     ]
     
-    private let names: [String] = [
+    private var names: [String] = [
         "Kruvasan", "Pasta", "Şekerleme", "Sütlü Tatlı"
     ]
     
-    private let prices: [String] = [
-        "60", "240", "17", "128"
+    private var prices: [Int] = [
+        10, 20, 50, 40
     ]
     
-    private let totals: [String] = [
-        "1", "3", "1", "2"
+    public var totals: [Int] = [
+        1, 3, 1, 2
     ]
+    
     
     
         
@@ -53,7 +59,12 @@ class ProductCartController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.tableView.reloadData()
+        
     }
+    
+    
     
     // MARK: - UI Setup
     private func setupUI() {
@@ -65,7 +76,16 @@ class ProductCartController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         payButton.translatesAutoresizingMaskIntoConstraints = false
         
-        payButton.configure(with: PayButtonViewModel(primaryText: "Satın Al", priceText: "₺445"))
+        var sum = 0
+        for x in 0..<prices.count{
+           sum += prices[x]
+        }
+        let xNSNumber = sum as NSNumber
+        let xString : String = xNSNumber.stringValue
+        
+        
+        
+        payButton.configure(with: PayButtonViewModel(primaryText: "Satın Al", priceText: "₺\(xString)"))
         
         
         NSLayoutConstraint.activate([
@@ -79,11 +99,12 @@ class ProductCartController: UIViewController {
             payButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
             payButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
             
-            
-        
-        
         ])
     }
+    
+   
+      
+    
 }
 
 extension ProductCartController: UITableViewDelegate, UITableViewDataSource {
@@ -96,12 +117,39 @@ extension ProductCartController: UITableViewDelegate, UITableViewDataSource {
             fatalError()
         }
         
+        
         cell.configure(image: self.images[indexPath.row],
                        name: self.names[indexPath.row],
-                       price: self.prices[indexPath.row],
-                       total: self.totals[indexPath.row])
+                       price: self.prices[indexPath.row].description,
+                       total: self.model.totals[indexPath.row].description)
+        
+        cell.buttonActionPlus = { [weak self] in
+                    self?.model.totals[indexPath.row] += 1
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+        cell.buttonActionMinus = { [weak self] in
+            if (self?.model.totals[indexPath.row])! > 0 {
+                    self?.model.totals[indexPath.row] -= 1
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+            } else if self?.model.totals[indexPath.row] == 0 {
+                self?.model.totals.remove(at: indexPath.row)
+                self?.images.remove(at: indexPath.row)
+                self?.names.remove(at: indexPath.row)
+                self?.prices.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        
+        }
+            
+            
+                  
+        
+        
         return cell
     }
+    
     
     
     
