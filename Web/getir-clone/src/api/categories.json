@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Atıştırmalık",
+    "image": "/images/categories2.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Dondurma",
+    "image": "/images/categories6.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Çikolata",
+    "image": "/images/categories7.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Fırın",
+    "image": "/images/categories8.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "Pasta",
+    "image": "/images/categories1.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Sütlü",
+    "image":"/images/categories5.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Şekerleme",
+    "image": "/images/categories4.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Şerbetli",
+    "image": "/images/categories3.jpeg"
+  }
+]
