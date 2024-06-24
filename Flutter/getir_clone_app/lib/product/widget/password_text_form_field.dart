@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
-class PasswordTextfield extends StatefulWidget {
-  const PasswordTextfield({
-    super.key, required this.controller, required this.hintText, required this.keyboardType
+class PasswordTextFormfieldNotEmpty extends StatefulWidget {
+  const PasswordTextFormfieldNotEmpty({
+    super.key,required this.validator, required this.controller, required this.hintText, required this.keyboardType, 
   });
   final TextEditingController controller;
   final String hintText;
   final TextInputType keyboardType;
+  final String? Function(String?)? validator;
 
   @override
-  State<PasswordTextfield> createState() => _PasswordTextfieldState();
+  State<PasswordTextFormfieldNotEmpty> createState() => _PasswordTextFormfieldNotEmptyState();
 }
 
-class _PasswordTextfieldState extends State<PasswordTextfield> {
+class _PasswordTextFormfieldNotEmptyState extends State<PasswordTextFormfieldNotEmpty> {
   bool _isSecure = true;
 
   void _changeSecure(){
@@ -23,7 +24,9 @@ class _PasswordTextfieldState extends State<PasswordTextfield> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: widget.validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscureText: _isSecure,
