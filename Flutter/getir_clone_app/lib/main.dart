@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:getir_clone_app/views/log_in_page.dart';
+import 'package:getir_clone_app/product/color/color_schema.dart';
+import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
+import 'package:getir_clone_app/view/login_page.dart';
 
 
 void main() {
@@ -13,28 +15,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Tatlımı Getir',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          color: const Color(0xff7b2cbf),
+          color: ProjectColors.appbarColor,
           centerTitle: true,
           elevation: 0,
-          systemOverlayStyle:const SystemUiOverlayStyle(statusBarColor: Color(0xff5a189a)),
-          titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+          systemOverlayStyle:const SystemUiOverlayStyle(statusBarColor: ProjectColors.statusBarColor),
+          titleTextStyle: context.textTheme().titleLarge?.copyWith(
             color: Colors.white
           )
         ),
-        scaffoldBackgroundColor: Colors.white.withOpacity(0.80),
+        scaffoldBackgroundColor: ProjectColors.scafoldColor,
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4))
+            borderRadius: BorderRadius.all(Radius.circular(5))
           )
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+       // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginPage(),
+      home: LoginPage(),
     );
   }
 }
