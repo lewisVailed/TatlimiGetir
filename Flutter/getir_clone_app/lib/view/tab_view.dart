@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
 import 'package:getir_clone_app/view/home_page.dart';
+import 'package:getir_clone_app/view/profile_page.dart';
+import 'package:getir_clone_app/view/search_page.dart';
 
 class TabView extends StatefulWidget {
   const TabView({super.key});
@@ -35,9 +37,9 @@ class _TabViewState extends State<TabView> {
           physics: NeverScrollableScrollPhysics(),
           children: [
             HomePage(),
+            SearchPage(),
             HomePage(),
-            HomePage(),
-            HomePage()
+            ProfilePage()
           ],
         )
       ));
