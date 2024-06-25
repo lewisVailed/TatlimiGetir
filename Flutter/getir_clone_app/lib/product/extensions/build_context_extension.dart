@@ -16,6 +16,8 @@ extension NumberExtensions on BuildContext{
   double get highValue => dynamicHeight(0.05);
   double get buttonHeightValue => dynamicHeight(0.06);
   double get selfScrollingImagesHeight => dynamicHeight(0.30);
+  double get tabBarHeightValue => dynamicHeight(0.08);
+  double get dessertImageSize => dynamicWidht(0.25);
 }
 
 extension PaddingExtensions on BuildContext{

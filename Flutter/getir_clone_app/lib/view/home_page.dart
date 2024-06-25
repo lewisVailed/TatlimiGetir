@@ -3,6 +3,7 @@ import 'package:getir_clone_app/product/color/color_schema.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
 import 'package:getir_clone_app/product/packages/self_scrolling_images.dart';
 import 'package:getir_clone_app/product/view_mixin/home_page_mixin.dart';
+import 'package:getir_clone_app/view/category_detail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> with HomePageMixin {
                       itemBuilder: (context,index){
                         return GestureDetector(
                           onTap: (){
-                           // Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryDetailPage(category: category[index])));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => CategoryDetailPage(category: category[index])));
                           },
                           child: Card(
                             color: ProjectColors.cardColor,

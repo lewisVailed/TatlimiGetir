@@ -7,4 +7,6 @@ class ProjectColors{
   static const Color scafoldColor = Colors.white;
   static const Color white = Colors.white;
   static const Color cardColor = Colors.grey; //grey[100]
+  static const Color black12 = Colors.black12;
+  static const Color purple = Colors.purple;
 }

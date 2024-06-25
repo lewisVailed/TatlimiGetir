@@ -6,8 +6,8 @@ import 'package:getir_clone_app/product/widget/elevated_button.dart';
 import 'package:getir_clone_app/product/widget/password_text_form_field.dart';
 import 'package:getir_clone_app/product/widget/text_button.dart';
 import 'package:getir_clone_app/product/widget/text_form_field.dart';
-import 'package:getir_clone_app/view/home_page.dart';
 import 'package:getir_clone_app/view/register_page.dart';
+import 'package:getir_clone_app/view/tab_view.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> with LoginPageMixin {
                 if(key.currentState?.validate() ?? false){
                   print("okey");
                 }
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const TabView()));
               },buttonName: LoginPageMixin.loginButtonText,),
               const Spacer(flex: 2),
 
