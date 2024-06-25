@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 extension BuildContextExtension on BuildContext{
   double dynamicHeight(double val) => MediaQuery.sizeOf(this).height * val;
@@ -22,6 +23,7 @@ extension NumberExtensions on BuildContext{
 
 extension PaddingExtensions on BuildContext{
   EdgeInsets get paddingAllLow => EdgeInsets.all(lowValue1);
+  EdgeInsets get paddingAllLow2 => EdgeInsets.all(lowValue2);
   EdgeInsets get paddingColumnHorizontal => EdgeInsets.symmetric(horizontal: mediumValue);
   EdgeInsets get paddingColumnHorizontalLow => EdgeInsets.symmetric(horizontal: lowValue1);
   EdgeInsets get paddingColumnVerticalLow => EdgeInsets.symmetric(vertical: lowValue2);
