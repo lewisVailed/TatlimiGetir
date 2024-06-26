@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:getir_clone_app/product/color/color_schema.dart';
@@ -5,7 +6,17 @@ import 'package:getir_clone_app/product/extensions/build_context_extension.dart'
 import 'package:getir_clone_app/view/login_page.dart';
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+    apiKey: 'key',
+    appId: 'id',
+    messagingSenderId: 'sendid',
+    projectId: 'myapp',
+    storageBucket: 'myapp-b9yt18.appspot.com',
+  )
+  );
   runApp(const MyApp());
 }
 
