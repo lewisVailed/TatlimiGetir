@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Supangle",
+    "image": "/images/products3.jpg",
+    "price": 60
+  },
+  {
+    "id": 2,
+    "title": "Böğürtlenli Dondurma",
+    "image": "/images/products2.jpg",
+    "price": 40
+  },
+  {
+    "id": 3,
+    "title": "Damla Çikolatalı Kurabiye",
+    "image": "/images/products1.jpg",
+    "price": 20
+  }
+]

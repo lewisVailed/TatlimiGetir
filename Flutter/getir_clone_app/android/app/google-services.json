@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21310468702",
+    "project_id": "getir-233a6",
+    "storage_bucket": "getir-233a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21310468702:android:99f8f4ca910eeb23013acf",
+        "android_client_info": {
+          "package_name": "com.example.getir_clone_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu4xGydvgdhp4F9toT1dvblbPMuSbZK3Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
