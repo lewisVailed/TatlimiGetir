@@ -6,8 +6,9 @@ import 'package:getir_clone_app/product/widget/elevated_button.dart';
 import 'package:getir_clone_app/product/widget/password_text_form_field.dart';
 import 'package:getir_clone_app/product/widget/text_button.dart';
 import 'package:getir_clone_app/product/widget/text_form_field.dart';
+import 'package:getir_clone_app/services/auth_services.dart';
 import 'package:getir_clone_app/view/register_page.dart';
-import 'package:getir_clone_app/view/tab_view.dart';
+import 'package:getir_clone_app/view_model/login_view_model.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -20,6 +21,9 @@ class _LoginPageState extends State<LoginPage> with LoginPageMixin {
   
   @override
   Widget build(BuildContext context) {
+
+    final LoginViewModel loginViewModel = LoginViewModel(context, authServices: AuthServices());
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(LoginPageMixin.appBarTitle),
@@ -57,8 +61,8 @@ class _LoginPageState extends State<LoginPage> with LoginPageMixin {
               Elevatedbutton(onPressed: (){
                 if(key.currentState?.validate() ?? false){
                   print("okey");
+                  loginViewModel.loginUser(epostController.text, passwordController.text);
                 }
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const TabView()));
               },buttonName: LoginPageMixin.loginButtonText,),
               const Spacer(flex: 2),
 
