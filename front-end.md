@@ -1,6 +1,8 @@
 # FrontEnd
 
 ## Ayberk Bilgiç - Swift
+MVC mimari, WebKit ve UIKit kullanıldı.
+
 1. Ürün Arama
 2. Ürünü sepete ekleme
 3. Ürünü sepetten silme
