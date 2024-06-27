@@ -6,6 +6,8 @@ import 'package:getir_clone_app/product/view_mixin/register_page_mixin.dart';
 import 'package:getir_clone_app/product/widget/elevated_button.dart';
 import 'package:getir_clone_app/product/widget/password_text_form_field.dart';
 import 'package:getir_clone_app/product/widget/text_form_field.dart';
+import 'package:getir_clone_app/services/auth_services.dart';
+import 'package:getir_clone_app/view_model/register_view_model.dart';
 
 class RegisterPage extends StatefulWidget {
     const RegisterPage({super.key});
@@ -15,8 +17,12 @@ class RegisterPage extends StatefulWidget {
   }
   
   class _RegisterPageState extends State<RegisterPage> with RegisterPageMixin{
+    
     @override
     Widget build(BuildContext context) {
+
+      final RegisterViewModel _registerViewModel = RegisterViewModel(context,authService: AuthServices());
+
       return Scaffold(
         appBar: AppBar(
           title: const Text(RegisterPageMixin.appbarTitle),
@@ -44,9 +50,13 @@ class RegisterPage extends StatefulWidget {
                 tapGestureRecognizer: tapGestureRecognizerInformative),
                 const Spacer(flex: 40,),
                 Elevatedbutton(
-                  onPressed: (){
+                  onPressed: () async {
                     if(key.currentState?.validate() ?? false){
                     print("okey");
+                    await _registerViewModel.saveUserToFirebase(
+                      nameController.text, epostController.text, passwordController.text,
+                      numberController.text);
+                      
                     }
                   },
                   buttonName: RegisterPageMixin.registerButtonName,

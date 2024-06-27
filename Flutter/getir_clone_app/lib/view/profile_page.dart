@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:getir_clone_app/product/color/color_schema.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
 import 'package:getir_clone_app/product/view_mixin/profile_page_mixin.dart';
+import 'package:getir_clone_app/services/auth_services.dart';
 import 'package:getir_clone_app/view/login_page.dart';
 import 'package:getir_clone_app/view/profile_detail_page.dart';
+import 'package:getir_clone_app/view_model/profile_view_model.dart';
 
 part '../product/part_of/alert_dialog.dart';
 
@@ -18,6 +20,7 @@ class _ProfilePageState extends State<ProfilePage> with ProfilePageMixin{
 
   @override
   Widget build(BuildContext context) {
+    final ProfileViewModel viewModel = ProfileViewModel(context, authServices: AuthServices());
     return Scaffold(
       appBar: AppBar(
         title:  const Text(ProfilePageMixin.appBarTitle),
@@ -54,7 +57,7 @@ class _ProfilePageState extends State<ProfilePage> with ProfilePageMixin{
                 return const _AlertDialog();
               });
             if(result is bool){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);
+              viewModel.outUser();
             }
           },)
         ],),
