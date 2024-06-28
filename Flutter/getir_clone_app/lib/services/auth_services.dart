@@ -15,11 +15,13 @@ class AuthServices{
     
     try{
       UserCredential userCredential = await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
-      
-      if(userCredential.user != null){
-        await _registerUser(name: name,email: email,password: password,number: number);
 
-        navigator.pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
+      User? user = userCredential.user;
+      
+      if(userCredential.user != null && user != null){
+        await _registerUser(user.uid,name: name,email: email,password: password,number: number);
+
+        navigator.pushReplacement(MaterialPageRoute(builder: (context) => const LoginPage()));
         Fluttertoast.showToast(msg: "Kayıt başarılı!");
       }
 
@@ -35,7 +37,7 @@ class AuthServices{
       UserCredential userCredential = await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
 
       if(userCredential.user != null){
-        navigator.pushReplacement(MaterialPageRoute(builder: (context) => TabView()));
+        navigator.pushReplacement(MaterialPageRoute(builder: (context) => const TabView()));
       }
     } on FirebaseAuthException catch(error) {
       Fluttertoast.showToast(msg: error.message!,toastLength: Toast.LENGTH_LONG);
@@ -46,12 +48,12 @@ class AuthServices{
     final navigator = Navigator.of(context);
     await firebaseAuth.signOut();
     
-    navigator.pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
+    navigator.pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);
   }
 
-  Future<void> _registerUser({required String name, required String email, required String password, required String number}) async {
+  Future<void> _registerUser(String userId,{required String name, required String email, required String password, required String number}) async {
     
-    await userCollection.doc().set({
+    await userCollection.doc(userId).set({
       "name" : name,
       "email" : email,
       "password" : password,

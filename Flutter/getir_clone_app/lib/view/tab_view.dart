@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
 import 'package:getir_clone_app/view/home_page.dart';
@@ -6,12 +7,29 @@ import 'package:getir_clone_app/view/search_page.dart';
 
 class TabView extends StatefulWidget {
   const TabView({super.key});
-
   @override
   State<TabView> createState() => _TabViewState();
 }
 
 class _TabViewState extends State<TabView> {
+
+  late String userId;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeUser();
+  }
+
+  Future<void> _initializeUser() async {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      setState(() {
+        userId = currentUser.uid;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -33,13 +51,13 @@ class _TabViewState extends State<TabView> {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           physics: NeverScrollableScrollPhysics(),
           children: [
             HomePage(),
             SearchPage(),
             HomePage(),
-            ProfilePage()
+            ProfilePage(userId: userId ,)
           ],
         )
       ));
