@@ -1,4 +1,4 @@
-# Betül Oran - JavaScript
+# Betül Oran - React
 ## Proje Gereksinimleri 
 1. Giriş yapma 
 2. Kayıt olma
