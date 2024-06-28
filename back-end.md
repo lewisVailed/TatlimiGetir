@@ -15,4 +15,4 @@ Firebase kullanıldı. RestAPI ve Docker kullanılmadı
 2. Giriş Yapma
 
 ## Betül Oran - React
-RestAPI ve Docker kullanılmadı
+RestAPI kullanıldı
