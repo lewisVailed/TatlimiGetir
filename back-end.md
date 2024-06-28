@@ -15,4 +15,9 @@ Firebase kullanıldı. RestAPI ve Docker kullanılmadı
 2. Giriş Yapma
 
 ## Betül Oran - React
-RestAPI ve Docker kullanılmadı
+RestAPI kullanıldı
+
+1. Ürün silme
+2. Ürün güncelleme
+3. Ürün ekleme
+4. Ürün listeleme
