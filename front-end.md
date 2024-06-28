@@ -23,6 +23,9 @@ MVC mimari, WebKit ve UIKit kullanıldı.
 2. Ürünü sepete ekleme
 3. Ürünü sepetten silme
 4. Profil görüntüleme
+5. Ürün kategorileri sayfası
+6. Giriş yap
+7. Kayıt ol
 
 [iOS Frontend Videosu](https://youtube.com/shorts/GwLZG8UOZjs)
 
