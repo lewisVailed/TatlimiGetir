@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:getir_clone_app/product/color/color_schema.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -10,11 +9,13 @@ class SearchPage extends StatefulWidget {
 }
 
 class SearchPageState extends State<SearchPage> {
+  final String _appbarTitle = "Arama";
+  final String _tfHintText = "Ürün ara";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Arama"),
+        title: Text(_appbarTitle),
       ),
       body:  Column(
         children: [
@@ -23,19 +24,19 @@ class SearchPageState extends State<SearchPage> {
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height/12,
-              child: const Card(
+              child: Card(
                 color: Colors.white,
                 elevation: 5,
-                shadowColor: Colors.white,
-                shape: RoundedRectangleBorder(),
+                shadowColor: ProjectColors.white,
+                shape: const RoundedRectangleBorder(),
                 child: TextField(
                   cursorColor: Colors.amber,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
-                    hintText: "Ürün ara",
-                    hintStyle: TextStyle(color: Colors.grey),
-                    prefixIcon: Icon(Icons.search_rounded,color: Color(0xff7b2cbf),size: 30,),
-                    border: OutlineInputBorder(
+                    hintText: _tfHintText,
+                    hintStyle: const TextStyle(color: Colors.grey),
+                    prefixIcon: const Icon(Icons.search_rounded,color: ProjectColors.appbarColor,size: 30,),
+                    border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(0)),
                       gapPadding: 0,
                       borderSide: BorderSide.none
@@ -46,7 +47,7 @@ class SearchPageState extends State<SearchPage> {
               ),
             ),
           ),
-          
+        
         ],
       ),
     );

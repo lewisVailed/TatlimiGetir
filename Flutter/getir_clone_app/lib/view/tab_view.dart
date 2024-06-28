@@ -1,36 +1,49 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:getir_clone_app/views/basket_page.dart';
-import 'package:getir_clone_app/views/home_page.dart';
-import 'package:getir_clone_app/views/profile_page.dart';
-import 'package:getir_clone_app/views/search_page.dart';
-
+import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
+import 'package:getir_clone_app/view/basket_page.dart';
+import 'package:getir_clone_app/view/home_page.dart';
+import 'package:getir_clone_app/view/profile_page.dart';
+import 'package:getir_clone_app/view/search_page.dart';
 
 class TabView extends StatefulWidget {
   const TabView({super.key});
-
   @override
   State<TabView> createState() => _TabViewState();
 }
 
 class _TabViewState extends State<TabView> {
+
+  late String userId;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeUser();
+  }
+
+  Future<void> _initializeUser() async {
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    if (currentUser != null) {
+      setState(() {
+        userId = currentUser.uid;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return  const DefaultTabController(
-      length: 4,
+    return DefaultTabController(
+      length: 4, 
       child: Scaffold(
         bottomNavigationBar: BottomAppBar(
           color: Colors.white,
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           notchMargin: 0,
-          height: 55,
-          child: TabBar(
-            
+          height: context.tabBarHeightValue,
+          child: const TabBar(
             indicatorWeight: 4,
             unselectedLabelColor: Colors.grey,
-            
             tabs: [
               Tab(icon: _tabIcon(icons: Icons.home_rounded )),
               Tab(icon: _tabIcon(icons: Icons.search_outlined)),
@@ -40,16 +53,15 @@ class _TabViewState extends State<TabView> {
           ),
         ),
         body: TabBarView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: [
-            HomePage(),
-            SearchPage(),
-            BasketPage(),
-            ProfilePage()
-          ],),
-      
-      ),
-    );
+            const HomePage(),
+            const SearchPage(),
+            const BasketPage(),
+            ProfilePage(userId: userId ,)
+          ],
+        )
+      ));
   }
 }
 
