@@ -4,15 +4,15 @@ import 'package:getir_clone_app/view/profile_page.dart';
 mixin ProfilePageMixin on State<ProfilePage>{
   static const String appBarTitle = "Profil";
 
-  final String name = "Mustafa Narin";
+  final String name = "name";
   static const String namePageDetailLabelText = "Adınız ve Soyadız";
   static const String namePageDetailAppbarTitle = "İsmi";
   
-  final String email = "mustafa.narin1132@gmail.com";
+  final String email = "email";
   static const String emailPageDetailLabelText = "E-posta adresiniz";
   static const String emailPageDetailAppbarTitle = "E-posta Adresi";
 
-  final String number = "+90 555 444 33 22";
+  final String number = "number";
   static const String numberPageDetailLabelText = "Telefon Numaranız";
   static const String numberPageDetailAppbarText = "Sipariş Adresi";
 

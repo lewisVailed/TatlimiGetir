@@ -1,16 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
 import 'package:getir_clone_app/product/view_mixin/profile_detail_mixin.dart';
 import 'package:getir_clone_app/product/widget/elevated_button.dart';
+import 'package:getir_clone_app/view/profile_page.dart';
 
 class ProfileDetailPage extends StatefulWidget {
-  const ProfileDetailPage({super.key, required this.tfText, required this.labelText, required this.appBarTitle,required this.validate,required this.keyboardType});
+  const ProfileDetailPage({super.key, required this.tfText, required this.labelText, required this.appBarTitle,required this.validate,required this.keyboardType, required this.userId, required this.updateData});
 
   final String tfText;
   final String labelText;
   final String appBarTitle;
   final String? Function(String?)? validate;
   final TextInputType? keyboardType;
+  final String userId;
+  final String updateData;
 
   @override
   State<ProfileDetailPage> createState() => _ProfileDetailPageState();
@@ -62,9 +66,13 @@ class _ProfileDetailPageState extends State<ProfileDetailPage> with ProfileDetai
             Padding(
               padding: context.paddingAllLow2,
               child: Elevatedbutton(
-                onPressed: (){
+                onPressed: () async {
                   if(key.currentState?.validate() ?? false){
-                    Navigator.pop(context);
+                    await FirebaseFirestore.instance.collection('users').doc(widget.userId).update({
+                    widget.updateData: tfController.text,});
+                    ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Name updated successfully')),);
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => ProfilePage(userId: widget.userId,updated: true,)), (route) => false );
                   }
                 },
                 buttonName: ProfileDetailMixin.saveButtonText
