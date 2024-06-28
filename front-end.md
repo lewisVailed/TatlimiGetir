@@ -29,11 +29,11 @@ MVC mimari, WebKit ve UIKit kullanıldı.
 ## Betül Oran - React
 React çatısı kullanıldı. 
 
-1.Giriş yapma
-2.Kayıt olma
-3.Ürün ekleme
-4.Ürün güncelleme
-5.Ürün silme
-6.Tüm ürünleri listeleme
-7.Ürün ekleme(Kullanıcı)
+1. Giriş yapma
+2. Kayıt olma
+3. Ürün ekleme
+4. Ürün güncelleme
+5. Ürün silme
+6. Tüm ürünleri listeleme
+7. Ürün ekleme(Kullanıcı)
 
