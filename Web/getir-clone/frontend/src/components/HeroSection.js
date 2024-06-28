@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import ReactFlagsSelect from "react-flags-select";
 import { useWindowWidth } from "@react-hook/window-size";
 import Modal from "react-modal";
+// import { auth, provider } from "../firebase";
+
 
 Modal.setAppElement('#root'); // Modal bileşenini kök element ile ilişkilendirin
 
 export default function HeroSection() {
+//   const login= () =>{
+// auth.signInWithPopup(provider).catch((error)=>alert(error.message));
+//   }
+
   const [selected, setSelected] = useState("TR");
   const windowWith = useWindowWidth();
   const phones = {
@@ -97,13 +103,14 @@ export default function HeroSection() {
                   required
                   className=" h-[46px] px-4 border-2 border-gray-200 rounded w-full transition-colors group-hover:border-primary-brand-color outline-none focus:border-primary-brand-color text-sm pt-2 peer"
                 />
-                <span className="absolute top-0 left-0 h-full px-4 flex items-center text-sm text-gray-500 peer-focus:h-7 transition-all peer-focus:text-primary-brand-color peer-focus:text-xs peer-valid:h-7 tra peer-valid:text-primary-brand-color peer-valid:text-xs">
+               <span className="absolute top-0 left-0 h-full px-4 flex items-center text-sm text-gray-500 peer-focus:h-7 transition-all peer-focus:text-primary-brand-color peer-focus:text-xs peer-valid:h-7 tra peer-valid:text-primary-brand-color peer-valid:text-xs">
                   Telefon Numarası
                 </span>
               </label>
             </div>
-            <button className="bg-brand-yellow h-12 flex items-center justify-center rounded-md mt-2 w-full text-sm font-semibold text-primary-brand-color transition-colors hover:text-brand-yellow hover:bg-primary-brand-color">
-              Telefon numarası ile devam et
+           <button
+             className="bg-brand-yellow h-12 flex items-center justify-center rounded-md mt-2 w-full text-sm font-semibold text-primary-brand-color transition-colors hover:text-brand-yellow hover:bg-primary-brand-color">
+               Telefon numarası ile devam et 
             </button>
             <hr className="h-[1px] bg-gray300 mt-3"></hr>
             <div

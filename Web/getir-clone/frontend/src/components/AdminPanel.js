@@ -32,11 +32,24 @@ const AdminPanel = () => {
             <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 w-[80px] h-[60px] text-sm">Ürünü Güncelle</button>
           </div>
         </div>
+      
         {/* Diğer Ürünler */}
+
         {/* İhtiyacınıza göre istediğiniz kadar ürün ekleyebilirsiniz */}
       </div>
+  <button className="bg-brand-purple h-10 w-40 mt-8 flex items-center justify-center rounded-md  text-sm font-semibold text-primary-brand-color transition-colors hover:text-brand-yellow hover:bg-tertiary-brand-color">
+            <a
+              href="#"
+              className=" text-white rounded-md text-sm">
+              Ürün Ekle
+            </a>
+          </button>
     </div>
+
   );
+
+
 };
 
 export default AdminPanel;
+
