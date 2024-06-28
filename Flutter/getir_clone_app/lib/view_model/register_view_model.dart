@@ -7,7 +7,7 @@ class RegisterViewModel{
   final AuthServices authService;
   final BuildContext context;
 
-  Future<void> saveUserToFirebase(String name, String email, String password, String number)async {
-    authService.signUp(context,name: name, email: email, password: password, number: number);
+  Future<void> saveUserToFirebase(String name, String email, String password, String number,String adress)async {
+    authService.signUp(context,name: name, email: email, password: password, number: number, adress: adress);
   }
 }

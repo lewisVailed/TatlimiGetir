@@ -7,6 +7,7 @@ import 'package:getir_clone_app/product/widget/password_text_form_field.dart';
 import 'package:getir_clone_app/product/widget/text_button.dart';
 import 'package:getir_clone_app/product/widget/text_form_field.dart';
 import 'package:getir_clone_app/services/auth_services.dart';
+import 'package:getir_clone_app/view/fotgat_password_page.dart';
 import 'package:getir_clone_app/view/register_page.dart';
 import 'package:getir_clone_app/view_model/login_view_model.dart';
 
@@ -53,7 +54,9 @@ class _LoginPageState extends State<LoginPage> with LoginPageMixin {
 
               Align(
                 alignment: Alignment.topRight,
-                child: Textbutton(onPressed: (){},buttonName: LoginPageMixin.passwordTextButtonText,textDecoration: TextDecoration.underline,),
+                child: Textbutton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgarPassword()));
+                },buttonName: LoginPageMixin.passwordTextButtonText,textDecoration: TextDecoration.underline,),
               ),
 
               const Spacer(flex:50,),
@@ -67,7 +70,7 @@ class _LoginPageState extends State<LoginPage> with LoginPageMixin {
               const Spacer(flex: 2),
 
               Textbutton(onPressed:(){
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
               },buttonName: LoginPageMixin.registerPageTextButtonText),
               const Spacer(flex: 8,)
             ],

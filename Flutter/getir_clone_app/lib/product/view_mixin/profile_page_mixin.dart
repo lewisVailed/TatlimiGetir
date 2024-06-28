@@ -14,9 +14,9 @@ mixin ProfilePageMixin on State<ProfilePage>{
 
   final String number = "number";
   static const String numberPageDetailLabelText = "Telefon Numaranız";
-  static const String numberPageDetailAppbarText = "Sipariş Adresi";
+  static const String numberPageDetailAppbarText = "Telefon numarası";
 
-  final String adress = "Fatih Mahallesi 99. sokak Isparta/Merkez";
+  final String adress = "adress";
   static const String adressPageDetailLabelText = "Sipariş adresiniz";
   static const String adressPageDetailAppbarText = "Sipariş Adresi";
 

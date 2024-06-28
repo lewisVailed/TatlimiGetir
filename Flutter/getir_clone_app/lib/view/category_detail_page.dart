@@ -3,6 +3,8 @@ import 'package:getir_clone_app/model/category.dart';
 import 'package:getir_clone_app/product/color/color_schema.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
 import 'package:getir_clone_app/product/view_mixin/category_detail_mixin.dart';
+import 'package:getir_clone_app/view_model/basket_view_model.dart';
+import 'package:provider/provider.dart';
 
 
 class CategoryDetailPage extends StatefulWidget {
@@ -68,7 +70,9 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> with CategoryDe
                           left: MediaQuery.of(context).size.width/6,
                           bottom: MediaQuery.of(context).size.width/4.5,
                           child: IconButton(
-                          onPressed: (){}, 
+                          onPressed: (){
+                            context.read<BasketViewModel>().AddBasket(desserts[index].name);
+                          }, 
                           icon: const Icon(Icons.add_box,color: ProjectColors.purple,size: 30,)),),
                       ],
                        
