@@ -21,11 +21,18 @@ class RegisterPage extends StatefulWidget {
     @override
     Widget build(BuildContext context) {
 
-      final RegisterViewModel _registerViewModel = RegisterViewModel(context,authService: AuthServices());
+      final RegisterViewModel registerViewModel = RegisterViewModel(context,authService: AuthServices());
 
       return Scaffold(
         appBar: AppBar(
           title: const Text(RegisterPageMixin.appbarTitle),
+          automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.keyboard_backspace_rounded,color: Colors.white,),
+         onPressed: () { 
+          Navigator.pop(context);
+          },
+        ),
         ),
         resizeToAvoidBottomInset: false,
         body: Padding(
@@ -44,6 +51,7 @@ class RegisterPage extends StatefulWidget {
                 const Spacer(flex: 4,),
                 TextFormFieldIsNotEmpty(validator: validatePhoneNumber, controller: numberController, hintText: RegisterPageMixin.numberHintText, keyboardType: TextInputType.number),
                 const Spacer(flex: 4,),
+                TextFormFieldIsNotEmpty(validator: validateAddress, controller: adressController, hintText: RegisterPageMixin.adressHintText, keyboardType: TextInputType.streetAddress),
                 _RichText(text1:RegisterPageMixin.agreement1,text2:RegisterPageMixin.agreement2,
                 tapGestureRecognizer: tapGestureRecognizerAgreement,),
                 _RichText(text1: RegisterPageMixin.informativeText1, text2: RegisterPageMixin.informativeText2, 
@@ -53,9 +61,9 @@ class RegisterPage extends StatefulWidget {
                   onPressed: () async {
                     if(key.currentState?.validate() ?? false){
                     print("okey");
-                    await _registerViewModel.saveUserToFirebase(
+                    await registerViewModel.saveUserToFirebase(
                       nameController.text, epostController.text, passwordController.text,
-                      numberController.text);
+                      numberController.text,adressController.text);
                       
                     }
                   },

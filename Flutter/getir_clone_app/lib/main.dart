@@ -5,8 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:getir_clone_app/product/color/color_schema.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
 import 'package:getir_clone_app/view/login_page.dart';
-import 'package:getir_clone_app/view/profile_page.dart';
 import 'package:getir_clone_app/view/tab_view.dart';
+import 'package:getir_clone_app/view_model/basket_view_model.dart';
+import 'package:provider/provider.dart';
 
 
 void main() async {
@@ -28,29 +29,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tatlımı Getir',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          color: ProjectColors.appbarColor,
-          centerTitle: true,
-          elevation: 0,
-          systemOverlayStyle:const SystemUiOverlayStyle(statusBarColor: ProjectColors.statusBarColor),
-          titleTextStyle: context.textTheme().titleLarge?.copyWith(
-            color: Colors.white
-          )
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => BasketViewModel()),
+      ],
+      child: MaterialApp(
+        title: 'Tatlımı Getir',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            color: ProjectColors.appbarColor,
+            centerTitle: true,
+            elevation: 0,
+            systemOverlayStyle:const SystemUiOverlayStyle(statusBarColor: ProjectColors.statusBarColor),
+            titleTextStyle: context.textTheme().titleLarge?.copyWith(
+              color: Colors.white
+            )
+          ),
+          scaffoldBackgroundColor: ProjectColors.scafoldColor,
+          inputDecorationTheme: const InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(5))
+            )
+          ),
+         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
         ),
-        scaffoldBackgroundColor: ProjectColors.scafoldColor,
-        inputDecorationTheme: const InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(5))
-          )
-        ),
-       // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        home:  const AuthCheck(),
       ),
-      home:  const AuthCheck(),
     );
   }
 }
@@ -67,9 +73,9 @@ class AuthCheck extends StatelessWidget {
           return const CircularProgressIndicator();
         }
         if (snapshot.hasData) {
-          return const TabView(); // Kullanıcı giriş yapmışsa ana sayfaya yönlendirin
+          return const TabView(); // If the user is logged in, goes to the home page
         } else {
-          return const LoginPage(); // Kullanıcı giriş yapmamışsa giriş sayfasına yönlendirin
+          return const LoginPage(); // login page if user is not logged in
         }
       },
     );

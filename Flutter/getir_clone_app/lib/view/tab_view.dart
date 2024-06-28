@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:getir_clone_app/product/extensions/build_context_extension.dart';
+import 'package:getir_clone_app/view/basket_page.dart';
 import 'package:getir_clone_app/view/home_page.dart';
 import 'package:getir_clone_app/view/profile_page.dart';
 import 'package:getir_clone_app/view/search_page.dart';
@@ -52,11 +53,11 @@ class _TabViewState extends State<TabView> {
           ),
         ),
         body: TabBarView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           children: [
-            HomePage(),
-            SearchPage(),
-            HomePage(),
+            const HomePage(),
+            const SearchPage(),
+            const BasketPage(),
             ProfilePage(userId: userId ,)
           ],
         )

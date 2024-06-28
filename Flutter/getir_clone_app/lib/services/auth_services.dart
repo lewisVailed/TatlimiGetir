@@ -9,7 +9,7 @@ class AuthServices{
   final userCollection = FirebaseFirestore.instance.collection("users");
   final firebaseAuth = FirebaseAuth.instance;
 
-  Future<void> signUp(BuildContext context ,{required String name, required String email, required String password, required String number}) async {
+  Future<void> signUp(BuildContext context ,{required String name, required String email, required String password, required String number,required String adress}) async {
 
     final navigator = Navigator.of(context);
     
@@ -19,10 +19,10 @@ class AuthServices{
       User? user = userCredential.user;
       
       if(userCredential.user != null && user != null){
-        await _registerUser(user.uid,name: name,email: email,password: password,number: number);
+        await _registerUser(user.uid,name: name,email: email,password: password,number: number,adress: adress);
 
         navigator.pushReplacement(MaterialPageRoute(builder: (context) => const LoginPage()));
-        Fluttertoast.showToast(msg: "Kayıt başarılı!");
+        Fluttertoast.showToast(msg: "Kayıt başarılı!",backgroundColor: Colors.white,textColor: Colors.black);
       }
 
     }on FirebaseAuthException catch (error){
@@ -51,13 +51,26 @@ class AuthServices{
     navigator.pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);
   }
 
-  Future<void> _registerUser(String userId,{required String name, required String email, required String password, required String number}) async {
+  Future<void> sendPasswordResetLink(BuildContext context,String email) async {
+    final navigator = Navigator.of(context);
+    try{
+      await firebaseAuth.sendPasswordResetEmail(email: email);
+      navigator.pop();
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Şifre yenileme mesajı e-postanıza gönderildi!")));
+      
+    }on FirebaseAuthException catch(error){
+      print(error.message);
+    }
+  }
+
+  Future<void> _registerUser(String userId,{required String name, required String email, required String password, required String number,required String adress}) async {
     
     await userCollection.doc(userId).set({
       "name" : name,
       "email" : email,
       "password" : password,
-      "number" : number
+      "number" : number,
+      "adress" : adress
     });
   
   }

@@ -4,6 +4,7 @@ import 'package:getir_clone_app/product/extensions/build_context_extension.dart'
 import 'package:getir_clone_app/product/view_mixin/profile_detail_mixin.dart';
 import 'package:getir_clone_app/product/widget/elevated_button.dart';
 import 'package:getir_clone_app/view/profile_page.dart';
+import 'package:getir_clone_app/view/tab_view.dart';
 
 class ProfileDetailPage extends StatefulWidget {
   const ProfileDetailPage({super.key, required this.tfText, required this.labelText, required this.appBarTitle,required this.validate,required this.keyboardType, required this.userId, required this.updateData});
@@ -71,8 +72,8 @@ class _ProfileDetailPageState extends State<ProfileDetailPage> with ProfileDetai
                     await FirebaseFirestore.instance.collection('users').doc(widget.userId).update({
                     widget.updateData: tfController.text,});
                     ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Name updated successfully')),);
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => ProfilePage(userId: widget.userId,updated: true,)), (route) => false );
+                    const SnackBar(content: Text('Profil güncelleme başarılı')),);
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const TabView()), (route) => false );
                   }
                 },
                 buttonName: ProfileDetailMixin.saveButtonText

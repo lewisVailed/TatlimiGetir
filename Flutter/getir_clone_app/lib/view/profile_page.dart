@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:getir_clone_app/product/color/color_schema.dart';
@@ -64,10 +62,10 @@ class _ProfilePageState extends State<ProfilePage> with ProfilePageMixin{
           const Divider(),
           _ListTile(icon: Icons.phone_rounded, titleText: data["number"],onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileDetailPage(tfText: data["number"], labelText: ProfilePageMixin.numberPageDetailAppbarText, appBarTitle: ProfilePageMixin.numberPageDetailAppbarText,validate: validatePhoneNumber,keyboardType: TextInputType.number,userId: widget.userId, updateData: number,))) ),
           const Divider(),
-          _ListTile(icon: Icons.home_work_rounded, titleText: adress,
+          _ListTile(icon: Icons.home_work_rounded, titleText: data["adress"],
           onTap:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileDetailPage(tfText: adress, labelText: ProfilePageMixin.adressPageDetailLabelText, 
-            appBarTitle: ProfilePageMixin.adressPageDetailAppbarText,validate: validateAdress,keyboardType: TextInputType.streetAddress,userId: widget.userId, updateData: 'adress',)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileDetailPage(tfText: data["adress"], labelText: ProfilePageMixin.adressPageDetailLabelText, 
+            appBarTitle: ProfilePageMixin.adressPageDetailAppbarText,validate: validateAdress,keyboardType: TextInputType.streetAddress,userId: widget.userId, updateData: adress,)));
           } ,),
           const Divider(),
           _ListTile(icon: Icons.output_rounded, titleText: ProfilePageMixin.appOutText,

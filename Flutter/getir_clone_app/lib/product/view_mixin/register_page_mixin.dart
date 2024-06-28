@@ -13,6 +13,7 @@ mixin RegisterPageMixin on State<RegisterPage> {
   static const String nameHintText = "Ad Soyad";
   static const String epostHintText = "E-posta";
   static const String passwordHintText = "Şifre";
+  static const String adressHintText = "Adresinizi Giriniz";
   static const String numberHintText = "Telefon Numarası";
   static const String textFormFildisNotEmtyText = "Bu alan boş geçilemez.";
   static const String registerButtonName = "Üye ol";
@@ -25,6 +26,7 @@ mixin RegisterPageMixin on State<RegisterPage> {
   final TextEditingController epostController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
+  final TextEditingController adressController = TextEditingController();
 
   String? validateName(String? value) {
   if (value == null || value.isEmpty) {
@@ -72,6 +74,15 @@ mixin RegisterPageMixin on State<RegisterPage> {
   }
   return null;
   }
+  
+  String? validateAddress(String? value) {
+  if (value != null && value.isEmpty) {
+    return 'Adres boş olamaz';
+  } else if (value != null && value.length < 10) {
+    return 'Adres çok kısa, lütfen daha ayrıntılı bir adres girin';
+  }
+  return null; // Geçerli bir adres
+}
 
 
   late final TapGestureRecognizer tapGestureRecognizerAgreement;
