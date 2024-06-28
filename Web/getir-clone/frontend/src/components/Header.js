@@ -1,7 +1,6 @@
 import React from "react";
-import { BiGlobe } from "react-icons/bi";
-import { RiUserFill, RiUserAddFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+
 
 export default function Header() {
   return (

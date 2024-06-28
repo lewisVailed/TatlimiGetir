@@ -18,7 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/admin" element={<AdminPanel />} />
-       
+      
         <Route 
           path="/" 
           element={

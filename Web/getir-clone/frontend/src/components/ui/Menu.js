@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Collapse } from "react-collapse";
 import { useWindowWidth } from "@react-hook/window-size";
 import { IoIosArrowDown } from "react-icons/io";
-export default function Menu({ title, items }) {
+export default function Menu({ name, items }) {
   const [isOpen, setIsOpen] = useState(true);
   const windowWith = useWindowWidth();
   const toogleCollapse = () => {
@@ -26,7 +26,7 @@ export default function Menu({ title, items }) {
           onClick={toogleCollapse}
           className="text-lg text-primary-brand-color flex items-center justify-between"
         >
-          {title}
+          {name}
           <button className="w-6 h-6 grid place-items-center rounded-lg bg-primary-brand-color bg-opacity-10 text-primary-brand-color sm:hidden">
             <span
               className={`transition-all transform ${

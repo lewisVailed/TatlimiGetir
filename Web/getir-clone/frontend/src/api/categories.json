@@ -1,42 +1,42 @@
 [
   {
-    "id": 1,
-    "title": "Atıştırmalık",
+    
+    "name": "Atıştırmalık",
     "image": "/images/categories2.jpeg"
   },
   {
-    "id": 2,
-    "title": "Dondurma",
+    
+    "name": "Dondurma",
     "image": "/images/categories6.jpeg"
   },
   {
-    "id": 3,
-    "title": "Çikolata",
+    
+    "name": "Çikolata",
     "image": "/images/categories7.jpeg"
   },
   {
-    "id": 4,
-    "title": "Fırın",
+    
+    "name": "Fırın",
     "image": "/images/categories8.jpeg"
   },
   {
-    "id": 5,
-    "title": "Pasta",
+    
+    "name": "Pasta",
     "image": "/images/categories1.jpeg"
   },
   {
-    "id": 6,
-    "title": "Sütlü",
+    
+    "name": "Sütlü",
     "image":"/images/categories5.jpeg"
   },
   {
-    "id": 6,
-    "title": "Şekerleme",
+    
+    "name": "Şekerleme",
     "image": "/images/categories4.jpeg"
   },
   {
-    "id": 6,
-    "title": "Şerbetli",
+    
+    "name": "Şerbetli",
     "image": "/images/categories3.jpeg"
   }
 ]
