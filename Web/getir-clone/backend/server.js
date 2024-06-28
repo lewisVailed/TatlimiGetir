@@ -1,46 +1,115 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
-let products = [
-    { id: 1, name: 'Supangle', image: '/images/products3.jpg' },
-    { id: 2, name: 'Böğürtlenli Dondurma', image: '/images/products2.jpg' },
-    { id: 3, name: 'Çikolatalı Kurabiye', image: '/images/products1.jpg' },
-];
+mongoose
+  .connect(
+    "mongodb+srv://root:betul123@cluster0.pihnjbx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    { 
+        dbName:'lenslight_tr',
+      //  useNewUrlParser: true, 
+        //useUnifiedTopology: true
+     }
+  )
+  .then(() => console.log("MongoDB'ye bağlandı"))
+  .catch((err) => console.error("MongoDB bağlantı hatası:", err.message));
 
-// Get all products
-app.get('/api/products', (req, res) => {
+const categorySchema = new mongoose.Schema({
+  name: String,
+  image: String,
+});
+const Category = mongoose.model("Category", categorySchema);
+
+const productSchema = new mongoose.Schema({
+  name: String,
+  image: String,
+  price: Number,
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+  },
+});
+const Product = mongoose.model("Product", productSchema);
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  surname: String,
+  email: String,
+  password: String,
+  profilePicture: String,
+  phoneNumber: String,
+});
+
+app.post("/api/categories", async (req, res) => {
+  try {
+    const category = new Category({
+      name: req.body.name,
+      image: req.body.name,
+    });
+    await category.save();
+    res.status(201).json(category);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+
+app.post("/api/products", async (req, res) => {
+  try {
+    const product = new Product({
+      name: req.body.name,
+      price: req.body.price,
+    });
+    await product.save();
+    res.status(201).json(product);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+app.get("/api/products", async (req, res) => {
+  try {
+    const products = await Product.find();
     res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
-// Add a new product
-app.post('/api/products', (req, res) => {
-    const newProduct = req.body;
-    newProduct.id = products.length ? products[products.length - 1].id + 1 : 1;
-    products.push(newProduct);
-    res.status(201).json(newProduct);
-});
+app.delete("/api/products/:id", async (req, res) => {
+    try {
+      const product = await Product.findByIdAndDelete(req.params.id);
+      if (!product) return res.status(404).json({ message: "Product not found" });
+  
+      res.json({ message: "Product deleted successfully" });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+  
+  
 
-// Delete a product
-app.delete('/api/products/:id', (req, res) => {
-    const productId = parseInt(req.params.id, 10);
-    products = products.filter(product => product.id !== productId);
-    res.status(204).end();
-});
+  app.put("/api/products/:id", async (req, res) => {
+    try {
+      const product = await Product.findById(req.params.id);
+      if (!product) return res.status(404).json({ message: "Product not found" });
+  
+      product.name = req.body.name || product.name;
+      product.price = req.body.price || product.price;
+  
+      await product.save();
+      res.json(product);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  });
 
-// Update a product
-app.put('/api/products/:id', (req, res) => {
-    const productId = parseInt(req.params.id, 10);
-    const updatedProduct = req.body;
-    products = products.map(product => 
-        product.id === productId ? { ...product, ...updatedProduct } : product
-    );
-    res.json(updatedProduct);
-});
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+
+app.listen(3001, () => {
+  console.log("Server started");
 });
